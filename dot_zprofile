@@ -1,0 +1,13 @@
+if [ $TERM = tramp ]; then
+    unset RPROMPT
+    unset RPS1
+    PS1="$ "
+    unsetopt zle
+    unsetopt rcs  # Inhibit loading of further config files
+fi
+
+if [ -x "$HOME/.pyenv/bin/pyenv" ] || command -v pyenv >/dev/null 2>&1; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:/opt/homebrew/bin:$PATH"
+    eval "$(pyenv init --path)"
+fi

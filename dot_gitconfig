@@ -1,0 +1,43 @@
+[diff]
+	tool = bc3
+	guitool = bc3
+	algorithm = patience
+[difftool]
+	prompt = false
+[user]
+	name = Andrew Jensen
+	email = andy.jensen@trane.com
+[push]
+	default = tracking
+[credential]
+	helper = cache
+#	helper = gnome-keyring
+[merge]
+	tool = bc3
+[mergetool]
+	prompt = false
+[alias]
+	bc = difftool --tool=bc3 --dir-diff
+	mt = mergetool
+	st = status -s
+	exec = "!exec "
+[color]
+	ui = auto
+[core]
+	autocrlf = input
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[pretty]
+	andy = "%C(auto)%h%d %an %C(cyan)%ad%C(reset) (%C(magenta)%ar%C(reset)) %s"
+[log]
+	date = local
+[pull]
+	rebase = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[difftool "bc3"]
+	trustExitCode = true
+[mergetool "bc3"]
+	trustExitCode = true

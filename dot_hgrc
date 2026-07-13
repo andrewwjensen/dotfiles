@@ -1,0 +1,67 @@
+[auth]
+dss.prefix = dss-scm
+dss.username = a_jensen
+dss.schemes = http https
+bitbucket.prefix = bitbucket.org/andrewwjensen
+bitbucket.username = andrewwjensen
+bitbucket.schemes = https
+
+[ui]
+username = Andy Jensen <Andy.Jensen@thomsonreuters.com>
+ssh = ssh -C
+
+[hostsecurity]
+bitbucket.org.fingerprints = sha256:4e:65:3e:76:0f:81:59:85:5b:50:06:0c:c2:4d:3c:56:53:8b:83:3e:9b:fa:55:26:98:9a:ca:e2:25:03:92:47
+dss-scm.stp.ime.reuters.com:fingerprints = sha256:07:85:cd:72:ad:90:ee:0a:8c:b8:40:27:51:2a:e5:a3:94:71:b7:9d:69:b1:54:fa:c0:7f:01:07:f9:c2:09:a6
+
+[color]
+qseries.applied = green bold
+qseries.unapplied = red
+
+[pager]
+pager = less -RFX
+
+[extensions]
+color =
+extdiff =
+fetch =
+graphlog =
+highlight =
+keyword =
+#mercurial_keyring =
+mq =
+pager =
+progress =
+purge =
+rebase =
+record =
+transplant =
+
+[diff]
+git = yes
+#ignorews = yes
+
+[extdiff]
+cmd.meld = meld
+cmd.kdiff3 = kdiff3
+
+[merge-tools]
+kdiff3.args = --L1 base --L2 'my changes(merge)/incoming changes(rebase)' --L3 'incoming changes(merge)/my changes(rebase)' $base $local $other -o $output
+kdiff3.priority = 20
+meld.args = --label=merge $base  --label=local $local  --label=other $other
+meld.priority = 10
+
+#[hgview]
+#dotradius=6
+# Available interfaces: qt (default), curses, raw
+#interface=curses
+
+[hooks]
+#precommit = /usr/local/bin/hgFormatOnCommit.sh
+#precommit = python:DssMercurialHooks.applyAstyle
+
+[alias]
+qmeld = extdiff -p meld -r.^1
+qstatus = status --rev .^1
+
+%include .hgrc.local

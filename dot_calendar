@@ -1,0 +1,45 @@
+# Calendar dates for the "pcal" program (https://sourceforge.net/projects/pcal/)
+
+3/23 Avery's Birthday
+3/24 Michael's Birthday
+5/12 Kim Zito's Birthday
+5/26 Kayla & Avery's Anniv. (2018)
+6/25 Galen's Birthday
+7/23 Ben's Birthday
+8/14 Anniversary (1993)
+8/26 Kim & Tommie's Anniv. (1995)
+9/22 Andy's Birthday
+10/30 Kayla's Birthday
+12/8 Daniel's Birthday
+12/15 Carol's Birthday
+12/21 Ben & Jodie's Anniv. (1991)
+
+# Fixed date holidays
+1/1*   New Year's Day
+First weekday on_or_after 1/1* Trane Holiday
+2/14*  Valentine's Day
+3/17*  St Patrick's Day
+4/1*   April Fool's Day
+7/4*   Independence Day
+Weekday nearest 7/4*   Trane Holiday
+10/31* Halloween
+12/25* Christmas
+Weekday nearest 12/25* Trane Holiday
+12/26* Trane Holiday
+
+# Variable date holidays
+3rd  Mon in Jan* Martin Luther King Jr. Day
+3rd  Mon in Jan* Trane Holiday
+3rd  Mon in Feb* President's Day
+2nd  Sun in May* Mother's Day
+Last Mon in May* Memorial Day
+Last Mon in May* Trane Holiday
+3rd  Sun in Jun* Father's Day
+1st  Mon in Sep* Labor Day
+1st  Mon in Sep* Trane Holiday
+Tue after 1st Mon in Nov  Election Day
+Easter*              Easter
+Thanksgiving*        Thanksgiving
+Thanksgiving*        Trane Holiday
+Day after Thanksgiving* Trane Holiday
+#2nd full_moon in all   Blue Moon

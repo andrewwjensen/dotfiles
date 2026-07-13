@@ -1,0 +1,23 @@
+#compdef profile
+#description Change the current AWS profile
+
+_profile() {
+
+    local -a aws_profiles
+
+    aws_profiles=$(
+        grep '\[' ~/.aws/config \
+            | tr -d '[]' \
+            | sed -e 's/^profile //' \
+            | while read -r profile; do echo -n "$profile "; done \
+                )
+
+    _arguments \
+        ':Aws profile:($(echo ${aws_profiles}) clear)'
+}
+
+_profile "$@"
+
+# Local Variables:
+# mode: sh
+# End:

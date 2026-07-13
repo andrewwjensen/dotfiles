@@ -1,0 +1,18 @@
+#compdef sso
+#description Change the current AWS profile
+
+_sso() {
+
+    local -a aws_profiles
+
+    aws_profiles=$(grep -E '^\[profile ' ~/.aws/config | awk '{print $2;}' | tr -d ']')
+
+    _arguments \
+        ':AWS profile:($(echo ${aws_profiles}))'
+}
+
+_sso "$@"
+
+# Local Variables:
+# mode: sh
+# End:

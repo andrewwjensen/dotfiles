@@ -1,0 +1,9 @@
+# Make sure to set HISTFILE so we don't clash with zsh
+export HISTFILE=~/.bash_history
+
+shopt -s globstar
+
+alias tup='PATH=/usr/local/bin:/bin:/usr/bin tup'
+
+# set ssh-agent parameters
+test -a ~/.ssh-agent.`hostname` && . ~/.ssh-agent.`hostname`

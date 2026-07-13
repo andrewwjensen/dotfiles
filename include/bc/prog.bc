@@ -1,0 +1,60 @@
+/* Program to be executed by the 'bc' utility */
+
+sum = 0
+n=20
+p=101
+for (i=0; i<=n; ++i)
+{
+    x = (7^i) % 1000
+    /* print i, ": ", x, "\n" */
+}
+/*
+sum
+sum % 21
+obase = 3
+fact(100)
+c(50,15)
+2^50
+
+gcf(12,8)
+*/
+
+/* Calculate 1/100 + 2/99 + 3/98 + ... + 100/1 */
+n = 0
+d = 1
+for (i=1; i<101; ++i)
+{
+    newn = i
+    newd = 101-i
+    n = n*newd + newn * d
+    d *= newd
+    g = gcf(n, d)
+    n /= g
+    d /= g
+    /* print "+", newn, "/", newd, " = ", n, "/", d, "\n" */
+}
+
+/* Calculate a Fibonacci-like sequence */
+a = 1
+b = 1
+c = 1
+d = 3
+print 1, ": ", a, " ", c, "\n"
+print 2, ": ", b, " ", d, "\n"
+for (i = 3; i<=1000; ++i)
+{
+    n = a + b;
+    a = b
+    b = n
+
+    m = c + d;
+    c = d
+    d = m
+    print i, ": ", b, " ", d, "\n"
+}
+
+/*****************************************************************
+ * This terminates the program so bc does not drop into
+ * an interactive shell.
+ */
+halt

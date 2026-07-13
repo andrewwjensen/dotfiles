@@ -1,0 +1,62 @@
+/* Functions for the 'bc' utility */
+
+/* Factorial function */
+define f(n) {
+  if (n > 1) {
+    return (n * f(n-1))
+  }
+  return (1)
+}
+
+/* Greatest common factor */
+define g(n, d) {
+    while(1){
+    	r = n % d
+	    if(r == 0){
+	         break
+	    }
+	    n = d
+	    d = r
+    }
+    return (d)
+}
+
+/* Combinations; n things taken r at a time. The algorithm looks a bit */
+/* strange, but we try to do as few operations as possible, and keep the */
+/* intermediate result as small as possible. */
+define c(n,r) {
+  if (n < 0) { return (0) }
+  if (r < 0) { return (0) }
+  if (n < r) { return (0) }
+  if (0 == n) { return (1) }
+  s = n - r
+  if (s > r) { r = s }
+  z = n
+  j = 2
+  for (i = n-1; i > n-r; i--)
+  {
+    z *= i
+    if (j <= r)
+    {
+      /* at this point, we know z is divisible by j */
+      z /= j++
+    }
+  }
+  return (z)
+  /* return (fact(n) / fact(r) / fact(n-r)) */
+}
+
+/* Permutations; n things taken r at a time. */
+define p(n,r) {
+  if (n < 0) { return (0) }
+  if (r < 0) { return (0) }
+  if (n < r) { return (0) }
+  if (0 == n) { return (1) }
+  z = n
+  for (i = n-1; i > n-r; i--)
+  {
+    z *= i
+  }
+  return (z)
+  /* return (fact(n) / fact(n-r)) */
+}

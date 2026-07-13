@@ -1,0 +1,13 @@
+set confirm off
+#add-auto-load-safe-path /usr/local/gcc-5.2.0/lib64/libstdc++.so.6.0.21-gdb.py
+
+python
+import os
+base = os.environ['FOO_PKG_HOME']
+build = os.path.join(base, 'build-Linux64')
+gdb.execute('set substitute-path {build} {base}'.format(build=build, base=base))
+gdb.execute('directory ' + os.path.join(build, 'include'))
+end
+
+show substitute-path
+show directories

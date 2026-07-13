@@ -1,0 +1,467 @@
+#!/bin/zsh
+################################################################
+#
+# ZSH init file
+#
+################################################################
+
+################################################################
+# Set up the environment variables
+################################################################
+
+export GPG_TTY=$(tty)
+
+export BC_LINE_LENGTH=0
+
+################################################################
+# Load modules
+################################################################
+
+autoload -U colors
+colors
+
+# Can't autoload datetime module; -i makes it not complain if already loaded
+zmodload -i zsh/datetime
+
+################################################################
+
+export COLUMNS LINES
+
+export EDITOR=/Applications/Emacs.app/Contents/MacOS/bin-arm64-11/emacsclient
+
+if [ -r "${HOME}/.github-token" ]; then
+  export HOMEBREW_GITHUB_API_TOKEN="$(cat "${HOME}/.github-token")"
+fi
+
+# How many history events to keep in memory
+export HISTSIZE=99999
+# And how many history items to keep in the history file
+export SAVEHIST=99999
+
+# Set up source highlighting for "less" command
+export LESS="-XR"
+lesspipe=/usr/local/bin/lesspipe.sh
+[ -x ${lesspipe} ] || lesspipe=/usr/bin/lesspipe
+
+src_highlight=/usr/local/bin/source-highlight-esc.sh
+[ -x ${src_highlight} ] || src_highlight=/usr/bin/source-highlight-esc.sh
+
+highlight=/usr/local/bin/highlight
+[ -x ${highlight} ] || highlight=/usr/bin/highlight
+
+if [ -x ${highlight} ]; then
+  # Prefer highlight to source-highlight
+  export LESSOPEN="| ${highlight} --out-format=xterm256 %s"
+elif [ -x ${src_highlight} ]; then
+  export LESSOPEN='| ${src_highlight} %s -o STDOUT 2>/dev/null'
+elif [ -x ${lesspipe} ]; then
+  # Use lesspipe if neither highlighter is present
+  eval "$(SHELL=/bin/sh ${lesspipe})"
+fi
+
+# How much output of the auto-completion list to display automatically without
+# asking:
+#   0 = up to one screen full
+#   n = up to n items
+#  -n = up to |n| lines
+export LISTMAX=0
+
+export LSCOLORS=ExFxCxDxBxegedabagacad
+export LS_COLORS='di=1;34:ln=1;35:so=1;32:pi=1;33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43'
+
+export PAGER="less -XR"
+
+export PIPENV_IGNORE_VIRTUALENVS=1
+
+# ZSH vs. Emacs as to which printable ASCII characters are word/not word:
+#
+#   emacs word: a-zA-Z0-9  $%
+#     zsh word: a-zA-Z0-9!#$%&()*-./;<=>?[]^_{}~
+#
+#   emacs not word: SPC !"#&'()*+,-./:;<=>?@[\]^_`{|}~
+#     zsh not word: SPC  "  '   +,   :     @ \   ` |
+#
+# ZSH default: WORDCHARS='!#$%&()*-./;<=>?[]^_{}~'
+# GNOME Terminal default: -A-Za-z0-9./?%&#:_=+@~
+export WORDCHARS='!#%*.?[]_~'
+
+if [ -r ${HOME}/.printer ]; then
+  export PRINTER=$(cat ${HOME}/.printer)
+  export LPDEST=${PRINTER}
+fi
+
+################################################################
+# aliases
+################################################################
+
+case $(uname -s) in
+Darwin)
+  LS_OPTS="-eGOT"
+  alias lll="/bin/ls ${LS_OPTS} -@AFhl"
+  ;;
+*) LS_OPTS="--color" ;;
+esac
+
+alias ag='ag --hidden' # --hidden to search dot-files
+alias agt='ag --hidden --ignore=test --ignore=itest --ignore=tests'
+alias bc='bc ~/include/bc/functions.bc'
+alias cdf='cd ~/Documents/Games/"Forge of Empires"'
+alias cdu='cd ~/unix-environment'
+alias cdw='cd ~/IdeaProjects/denali-digital-backend/'
+alias cdp='cd ~/.local/share/posting/default'
+alias c2n="tr : '\012'"
+alias cr2n=crlf
+alias cln='/bin/rm -f *~(.ND)' # set NULL_GLOB and GLOB_DOTS for this pattern
+alias dirs='dirs -p'
+alias h='fc -lfD -100'
+alias hd='hexdump -C'
+alias ll="ls ${LS_OPTS} -AFhl"
+alias ls="ls ${LS_OPTS} -F"
+alias lsa="ls ${LS_OPTS} -AFs"
+alias lla="ls --color -AFhl"
+alias mpage='mpage -m9lt10r41b'
+alias mq='hg -R $(hg root --mq)'
+alias mymod='chmod 700'
+alias pd='pushd'
+alias pdd='pushd +0'
+alias pdiff='git diff --no-index --patience'
+alias psa="ps auxww"
+alias psme="psa | grep -v grep | egrep 'PID|${USER}'"
+alias s="sso devds-architect"
+alias sa="s; a"
+alias s2n="tr ' ' '\012' | egrep -v '^ *$'"
+alias setpaths='eval $(python3 ${HOME}/.setpaths.py)'
+alias trunc="expand | cut -c 1-\${COLUMNS}"
+alias urldecode='python -c "import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))"'
+alias urlencode='python -c "import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]))"'
+alias v="vim -u ${HOME}/.vimrc.less"
+alias vg='valgrind --leak-check=full --show-reachable=yes --log-file=vg.out --num-callers=20'
+alias vgs='vg --suppressions=${HOME}/.valgrind_suppressions'
+alias vtn='echo "X[mX(BX)0OX[?5lX7X[rX8" | tr "XO" "\033\017"'
+alias whence='whence -va'
+alias xmod='chmod +x'
+alias z='exec /usr/local/bin/zsh'
+
+################################################################
+# zsh control
+################################################################
+
+bindkey -e # set line editor to emacs style
+bindkey "\210" backward-kill-word
+bindkey "\C-u" universal-argument
+
+autoload replace-string
+zle -N replace-string
+zle -N replace-pattern replace-string
+bindkey "\C-x5" replace-pattern
+bindkey "\C-x%" replace-string
+
+autoload -U is-at-least
+is-at-least 4.3.9 && bindkey "\C-r" history-incremental-pattern-search-backward
+is-at-least 4.3.9 && bindkey "\C-s" history-incremental-pattern-search-forward
+
+# Override oh-my-zsh default for ESC-l of "ls^J"
+bindkey "^[l" down-case-word
+
+#bindkey "\0177" backward-delete-char
+
+################################################################
+# For a complete description of the following, see zshoptions(1)
+# Comments apply to setopt, so invert meaning for unsetopt
+################################################################
+# setopt AUTONAMEDIRS     # see zshoptions(1)
+# setopt allExport        # automatically export any variable set in the shell
+setopt alwaysLastPrompt     # see zshoptions(1)
+setopt alwaysToEnd          # see zshoptions(1)
+setopt appendHistory        # append history to history file rather than overwrite
+unsetopt autoList           # automatically list chices on ambiguous completion
+unsetopt autoMenu           # automatically use menu completion on repeated TABS
+setopt autoParamKeys        # see zshoptions(1)
+setopt autoParamSlash       # add slash after directory names in completion
+unsetopt autoRemoveSlash    # remove trailing completed slashes
+unsetopt cd_ableVars        # allow cd to path in a variable w/o using '$'
+setopt completeInWord       # allow tab completion in the middle of a word
+setopt correct              # correct spelling of commands
+setopt extendedGlob         # use # ~ and ^ for filename generation
+setopt extendedHistory      # save timestamp and elapsed time with each history entry
+setopt hashCmds             # put location of cmd in hash table after first use
+setopt hashDirs             # hash entire contents of bin directories
+setopt hashListAll          # see zshoptions(1)
+setopt histExpireDupsFirst  # remove duplicate history items before older unique ones
+setopt histFindNoDups       # don't show duplicate lines when repeatedly searching
+setopt histIgnoreDups       # don't put two consecutive identical cmd in history
+setopt histIgnoreSpace      # don't put cmd in history if it starts with a space
+setopt histNoStore          # don't put history cmds in history
+unsetopt histReduceBlanks   # a zsh 5.0.2 bug removes too much with this option set
+setopt incAppendHistoryTime # append to history file right after command completes, not at exit
+if [[ "${EUID}" -ne 0 ]]; then
+  setopt ignoreEOF # do not exit on EOF; require exit or logout
+fi
+unsetopt markDirs      # put / after directory names in filename generation
+setopt menuComplete    # cycle through choices on TAB
+unsetopt listBeep      # beep on ambiguous completion
+setopt noFlowControl   # disable flow control so C-s and C-q are usable keys
+setopt notify          # print status of background jobs immediately
+setopt numericGlobSort # sort filenames numerically when matched by a pattern
+setopt promptSubst     # allow functions in the prompt
+setopt pushdIgnoreDups # don't put the same dir twice on the stack
+setopt pushdMinus      # reverse meaning of +/- in pushd builtin
+setopt pushdSilent     # don't print directory stack after pushd
+unsetopt pushdToHome   # Have pushd with no arguments act like pushd ${HOME}
+unsetopt shareHistory  # don't import history file at every prompt (set by some oh-my-zsh plugins)
+setopt ZLE             # use zsh line editor
+
+################################################################
+# Functions to make things easier and more pleasing
+################################################################
+
+#### TRANE FUNCTIONS ####
+
+# For powerlevel10k prompt element "aws_profile" displaying the current AWS profile
+function prompt_aws_profile() {
+  p10k segment -b 5 -f 7 -e -t '${AWS_PROFILE}'
+}
+
+function profile() {
+  case ${1} in
+  "") ;;
+  clear)
+    unset AWS_PROFILE
+    unset AWS_DEFAULT_PROFILE
+    unset KUBECONFIG
+    ;;
+  *)
+    export AWS_PROFILE="${1}"
+    export AWS_DEFAULT_PROFILE="${1}"
+    export export KUBECONFIG="${HOME}/.kube/${1}"
+    ;;
+  esac
+  echo "${AWS_PROFILE+AWS_PROFILE=}${AWS_PROFILE}"
+  echo "${AWS_DEFAULT_PROFILE+AWS_DEFAULT_PROFILE=}${AWS_DEFAULT_PROFILE}"
+  echo "${KUBECONFIG+KUBECONFIG=}${KUBECONFIG}"
+}
+
+function sso() {
+  # We assume the KUBECONFIG filename is the same as the AWS profile name
+  unset AWS_ACCESS_KEY_ID
+  unset AWS_SECRET_ACCESS_KEY
+  unset AWS_SESSION_TOKEN
+  unset AWS_SECURITY_TOKEN
+  unset AWS_CREDENTIAL_EXPIRATION
+  unset SAML2AWS_PROFILE
+  if [ -z "${1}" ]; then
+    unset AWS_PROFILE
+    unset AWS_DEFAULT_PROFILE
+    unset KUBECONFIG
+    return
+  fi
+
+  export AWS_PROFILE="${1}"
+  export AWS_DEFAULT_PROFILE="${AWS_PROFILE}"
+  if aws sts get-caller-identity >/dev/null; then
+    :
+  else
+    echo "Token refresh failed. Logging in again..."
+    aws sso login
+  fi
+
+  # Set KUBECONFIG if needed
+  export KUBECONFIG="${HOME}/.kube/${AWS_PROFILE}"
+  if [ -r "${KUBECONFIG}" ]; then
+    local cluster=primary
+    aws eks --region us-east-1 update-kubeconfig --name ${cluster} --kubeconfig="${KUBECONFIG}"
+  else
+    unset KUBECONFIG
+  fi
+}
+
+function a() {
+  # Activate a Python virtual environment
+  activate_script_path="./.venv/bin/activate"
+  if [[ ! -f "$activate_script_path" ]]; then
+    # Choose the Python virtual environment interactively, and then activate it
+    activate_script_path="$(choose_venv.py)"
+    if [[ $? -eq 0 && -n "$activate_script_path" ]]; then
+    else
+      echo "No environment selected." >&2
+      return
+    fi
+  fi
+  echo "Activating Python virtual environment: $activate_script_path"
+  source "$activate_script_path"
+}
+
+#### END TRANE FUNCTIONS ####
+
+# Make sure the function 'd' defined by oh-my-zsh is removed so my own compiled
+# executable that parses and shows dates is used instead.
+unfunction d 2>/dev/null || true
+
+# Convert CR to line feed
+
+function crlf() {
+  tr '\015' '\012'
+}
+
+function gbc() {
+  git bc "${1}^" "${1}"
+}
+
+function gdiff() {
+  git diff "${1}^" "${1}"
+}
+
+function gmeld() {
+  git meld "${1}^" "${1}"
+}
+
+# For git workflow, two commands to create and delete branch
+
+function go() {
+  branch=$1
+  if [ -z "$1" ]; then
+    branch=ajensen
+  fi
+  git branch ${branch}
+  git checkout ${branch}
+}
+
+function listening() {
+  if [ $# -eq 0 ]; then
+    sudo lsof -iTCP -sTCP:LISTEN -n -P
+  elif [ $# -eq 1 ]; then
+    sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
+  else
+    echo "Usage: listening [pattern]"
+  fi
+}
+
+function og() { # reverse spelling of "go"
+  current_branch=$(git branch --show-current)
+  if [[ ${current_branch} != "master" ]]; then
+    git checkout master
+    git pull -p
+    git branch -d ${current_branch}
+  fi
+}
+
+function hdl() {
+  hexdump -ve '/1 "%02x "' "$1" | sed -e 's/0a /\n/g'
+}
+
+function k() {
+  while true; do
+    date
+    sleep 60
+  done
+}
+
+function kk() {
+  while true; do
+    date
+    sleep 3600
+  done
+}
+
+# function to label xterm window to arg list
+
+function label() {
+  case "${TERM}" in
+  vt100 | vs100 | xterm*) echo -n "\e]0;$*\007" ;;
+  esac
+}
+
+# Convert line feed to CR
+
+function lfcr() {
+  tr '\012' '\015'
+}
+
+# make directory and change to it
+
+function mcd() {
+  mkdir -p $1
+  cd $1
+}
+
+# Remove LF from stdout
+
+function nolf() {
+  tr -d '\012'
+}
+
+function sleep_until() {
+  seconds=$(($(date -d "$*" +%s) - $(date +%s)))
+  if [[ $seconds -lt 0 && $seconds -gt -86400 ]]; then
+    seconds=$(($seconds + 86400))
+  fi
+  if [[ $seconds -gt 0 ]]; then
+    echo "Sleeping for $seconds seconds"
+    sleep $seconds
+  fi
+}
+
+function st() {
+  if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]; then
+    git status "$@"
+  elif hg root >/dev/null 2>&1; then
+    hg status "$@"
+  else
+    echo "No mercurial nor git repo detected in ${PWD}"
+  fi
+}
+
+function tm() {
+  # Display the time, constantly updated in place
+  for ((i = 1; ; ++i)); do
+    # "|| break" allows us to catch Ctrl-C properly and terminate the loop
+    strftime -s date "%c" ${EPOCHSECONDS} || break
+    echo "${date}  $i" | tr '\012' '\015' || break
+  done
+  # Overwrite "^C" on the terminal with the last date
+  echo -n "\r"
+  echo "${date}  $i"
+}
+
+function wait_for_file() {
+  local filename=$1
+  echo "$(date) Waiting for ${filename}..."
+  while [[ ! -e ${filename} ]]; do
+    sleep 1
+  done
+  echo "$(date) ${filename} now exists; continuing."
+}
+
+# pyenv modifies PATH to add its "shims" directory at the front
+if pyenv init - >/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+################################################################
+# Final processing
+################################################################
+
+# Source some other files if they exist
+sources=(
+  ${HOME}/.zshrc.$(hostname -s)
+  ${HOME}/.zshrc.local
+)
+for fn in ${sources}; do
+  if [ -r ${fn} ]; then
+    source ${fn}
+  fi
+done
+
+# Add autocompletion for kubectl
+command kubectl >/dev/null 2>&1 && source <(kubectl completion zsh)
+
+# brew completions
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
+test -e "${HOME}/dev/util/venv/bin/activate" && source "${HOME}/dev/util/venv/bin/activate"

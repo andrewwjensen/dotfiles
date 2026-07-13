@@ -1,0 +1,45 @@
+#compdef tb
+
+# Zsh completion script for the "tb" expect script for connecting to hosts.
+# This is primarily to complete host names. The list of hosts it knows about
+# can be retrieved by running tb with the -l option. Rename this file to _tb
+# and copy it into your zsh function path. For example:
+#
+#     /usr/share/zsh/site-functions/_tb
+#
+# If you do not want to install it globally, you can copy it somewhere
+# else and add that directory to $fpath. This must be done before
+# compinit is called. If the file is copied to ~/.zsh.d, your ~/.zshrc
+# file could look like this:
+#
+#     fpath=("$HOME/.zsh.d" $fpath)
+#
+
+_tb() {
+    _arguments : \
+        '(-d)-d[print debug messages]' \
+        '(-h)-h[this usage info]' \
+        '(-l)-l[display list of hosts and exit]' \
+        '(-r)-r[su to root after login]' \
+        "*:host:_tb_hosts"
+}
+
+_tb_hosts() {
+    local hline
+
+    _call_program tb tb -l 2>&1 | while read -A hline
+    do
+        mod=$hline[1]
+        _tb_hosts_list+=($mod)
+    done
+
+    # Only complete the part after any @ sign in the argument
+    compset -P '*@'
+    _describe -t commands 'host' _tb_hosts_list
+}
+
+_tb "$@"
+
+# Local Variables:
+# mode: sh
+# End:

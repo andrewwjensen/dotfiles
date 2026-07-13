@@ -1,0 +1,2 @@
+/scp:user@host:
+smb://domain;user@host-or-ip/path

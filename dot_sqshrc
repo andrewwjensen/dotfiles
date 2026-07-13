@@ -1,0 +1,10 @@
+\set histsize=1000
+\set readline_histsize=1000
+\set prompt='[$histnum] ${DSQUERY}.${database}.${lineno}> '
+\set semicolon_hack=on
+\set keyword_completion=smart
+\set keyword_dynamic=On
+\set keyword_query="\\
+  select name from sysobjects \\
+  where type in ('U','V') \\
+  order by name"

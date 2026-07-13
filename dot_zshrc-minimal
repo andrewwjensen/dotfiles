@@ -1,0 +1,63 @@
+#!/bin/zsh
+
+autoload -U colors
+colors
+
+setopt appendHistory
+setopt autoParamSlash
+setopt completeInWord
+setopt correct
+setopt extendedGlob
+setopt extendedHistory
+setopt hashCmds
+setopt hashDirs
+setopt hashListAll
+setopt histExpireDupsFirst
+setopt histIgnoreDups
+setopt histIgnoreDups
+setopt histIgnoreSpace
+setopt histNoStore
+setopt incAppendHistory
+setopt incAppendHistory
+setopt menuComplete
+setopt noFlowControl
+setopt notify
+setopt numericGlobSort
+setopt pushdIgnoreDups
+setopt pushdSilent
+
+export HISTFILE=~/.zsh_history
+export HISTSIZE=1000
+export LISTMAX=0
+export SAVEHIST=1000
+export PAGER="less"
+export PROMPT="%$(expr ${COLUMNS} + 5)>>%{$fg_bold[red]%}%D{%a %b %e %T %Z %Y} %{${fg_bold[cyan]}%}%n%{$reset_color%}@%{$fg_bold[green]%}%m%{${fg_bold[red]}%}________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________%<<
+%{${fg[red]}%}%(?..[%?%1v] )%{$reset_color%}zsh${ZSH_VERSION}%(2L./${SHLVL}.) %(2v.%U%2v%u .)%{$fg_bold[cyan]%}%h%#%{$reset_color%} "
+export RPROMPT="%{$fg[green]%}%~%{$reset_color%}%"
+export WORDCHARS='*?_[]~!#%.-'
+
+bindkey -e
+bindkey "\C-u" universal-argument
+
+alias c2n="tr : '\012'"
+alias dirs='dirs -p'
+alias h='fc -lfD -100'
+alias less='less -XR'
+alias ll='ls -FhlA'
+alias lla='ls -FhlA'
+alias lsa='ls -FhA'
+alias mymod='chmod 700'
+alias pd='pushd'
+alias pdd='pushd -0'
+alias s2n="tr ' ' '\012' | egrep -v '^ *$'"
+alias whence='whence -va'
+
+autoload -U is-at-least
+is-at-least 4.3.9 && bindkey "\C-r" history-incremental-pattern-search-backward
+is-at-least 4.3.9 && bindkey "\C-s" history-incremental-pattern-search-forward
+
+# make directory and change to it
+function mcd {
+    mkdir -p $1
+    cd $1
+}
