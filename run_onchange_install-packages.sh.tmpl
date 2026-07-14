@@ -3,12 +3,26 @@
 sudo apt install ripgrep
 {{ else if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
+set -eufo pipefail
 
-# Install Homebrew if not already
+
+echo "========================================="
+echo "       Syncing Packages via Brewfile     "
+echo "========================================="
+
+# 1. Install Homebrew if missing
 if ! command -v brew &> /dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-# Install my packages
-brew install ripgrep
+# 2. Run the Brewfile synchronization
+if command -v brew &> /dev/null; then
+    echo "Installing all dependencies defined in ~/.homebrew/Brewfile..."
+
+    # This automatically processes taps, casks, and packages in order
+    brew bundle --global --no-lock
+
+    echo "Brewfile sync complete."
+fi
+
 {{ end -}}
