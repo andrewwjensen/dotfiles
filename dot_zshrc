@@ -102,9 +102,6 @@ plugins=(
     web-search
     # Note: wd breaks C-o which should load the next history command into the new prompt. Instead, you get a clean prompt.
 #     wd
-    # Note: zsh-autosuggestions causes sequential kills (e.g. C-w) to overwrite the kill buffer rather than adding to it.
-#     zsh-autosuggestions
-    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -139,6 +136,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 test -e "${HOME}/.zshrc-personal" && source "${HOME}/.zshrc-personal"
+
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
