@@ -194,8 +194,8 @@ setopt histIgnoreSpace      # don't put cmd in history if it starts with a space
 setopt histNoStore          # don't put history cmds in history
 unsetopt histReduceBlanks   # a zsh 5.0.2 bug removes too much with this option set
 setopt incAppendHistoryTime # append to history file right after command completes, not at exit
-if [[ "${EUID}" -ne 0 ]]; then
-  setopt ignoreEOF # do not exit on EOF; require exit or logout
+if (( SHLVL == 1 && EUID != 0 )); then # Only restrict top-level login shell for non-root users
+  setopt ignoreEOF # do not exit on EOF (i.e. Ctrl-D); require typing "exit" or "logout"
 fi
 unsetopt markDirs      # put / after directory names in filename generation
 setopt menuComplete    # cycle through choices on TAB
@@ -282,6 +282,7 @@ function a() {
     # Choose the Python virtual environment interactively, and then activate it
     activate_script_path="$(choose_venv.py)"
     if [[ $? -eq 0 && -n "$activate_script_path" ]]; then
+      :
     else
       echo "No environment selected." >&2
       return
