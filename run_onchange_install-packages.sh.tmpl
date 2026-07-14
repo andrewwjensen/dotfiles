@@ -20,7 +20,7 @@ if command -v brew &> /dev/null; then
     echo "Installing all dependencies defined in ~/.homebrew/Brewfile..."
 
     # This automatically processes taps, casks, and packages in order
-    brew bundle --global --no-lock
+    HOMEBREW_BUNDLE_NO_LOCK=1 brew bundle --global
 
     echo "Brewfile sync complete."
 fi
