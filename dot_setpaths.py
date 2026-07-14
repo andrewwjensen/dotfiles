@@ -41,6 +41,7 @@ def set_path():
     add_path('PATH', os.path.join(os.environ['HOME'], 'IdeaProjects/stratus-aws/scripts'), at_front=True)
     add_path('PATH', os.path.join(os.environ['HOME'], 'bin/archind'), at_front=True)
     add_path('PATH', os.path.join(os.environ['HOME'], 'bin'), at_front=True)
+    add_path('PATH', os.path.join(os.environ['HOME'], 'unix-environment/bin/archind'), at_front=True)
     add_path('PATH', os.path.join(os.environ['HOME'], 'unix-environment/bin/src/mine/build-default'), at_front=True)
     add_path('PATH', os.path.join(os.environ['HOME'], 'unix-environment/bin/src/mine/bazel-bin'), at_front=True)
 
@@ -62,7 +63,7 @@ def set_path():
     add_path('PATH', '/usr/games')
 
     if os.getenv('PATH'):
-        print('export PATH="{}"'.format(os.environ["PATH"]))
+        print(f'export PATH="{os.environ["PATH"]}"')
 
 
 def set_pythonpath():
@@ -70,7 +71,7 @@ def set_pythonpath():
 
     add_path('PYTHONPATH', os.path.join(os.environ['HOME'], 'dev/util'))
     if os.getenv('PYTHONPATH'):
-        print('export PYTHONPATH="{}"'.format(os.environ["PYTHONPATH"]))
+        print(f'export PYTHONPATH="{os.environ["PYTHONPATH"]}"')
 
 
 def main():

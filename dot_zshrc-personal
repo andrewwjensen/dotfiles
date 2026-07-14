@@ -115,6 +115,11 @@ alias cdp='cd ~/.local/share/posting/default'
 alias c2n="tr : '\012'"
 alias cr2n=crlf
 alias cln='/bin/rm -f *~(.ND)' # set NULL_GLOB and GLOB_DOTS for this pattern
+alias cz="chezmoi"
+alias cza="chezmoi apply"
+alias cze="chezmoi edit"
+alias czd="chezmoi diff"
+alias czu="chezmoi update"
 alias dirs='dirs -p'
 alias h='fc -lfD -100'
 alias hd='hexdump -C'
@@ -426,5 +431,7 @@ if type brew &>/dev/null; then
   autoload -Uz compinit
   compinit
 fi
+
+setpaths
 
 test -e "${HOME}/dev/util/venv/bin/activate" && source "${HOME}/dev/util/venv/bin/activate"

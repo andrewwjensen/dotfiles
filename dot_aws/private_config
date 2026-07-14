@@ -1,0 +1,67 @@
+[sso-session andy-sso]
+sso_start_url = https://d-906740aeb4.awsapps.com/start
+sso_region = us-east-1
+sso_registration_scopes = sso:account:access
+[profile devds-architect]
+sso_session = andy-sso
+sso_account_id = 004819182232
+sso_role_name = denali-fullstack-architect
+region = us-east-1
+credential_process = aws configure export-credentials --profile devds-architect
+[profile devds-usercontrols]
+sso_session = andy-sso
+sso_account_id = 004819182232
+sso_role_name = denali-fullstack-usercontrols
+region = us-east-1
+[profile testing-usercontrols]
+sso_session = andy-sso
+sso_account_id = 539368912363
+sso_role_name = denali-fullstack-usercontrols
+region = us-east-1
+[profile staging-usercontrols]
+sso_session = andy-sso
+sso_account_id = 869678744218
+sso_role_name = denali-fullstack-usercontrols
+region = us-east-1
+[profile prod-usercontrols]
+sso_session = andy-sso
+sso_account_id = 508928318364
+sso_role_name = denali-fullstack-usercontrols
+region = us-east-1
+output = json
+[profile stgeu-fullstack-lead]
+sso_session = andy-sso
+sso_account_id = 533267171754
+sso_role_name = denali-fullstack-lead
+region = eu-central-1
+output = json
+[profile prodeu-fullstack-lead]
+sso_session = andy-sso
+sso_account_id = 730335554790
+sso_role_name = denali-fullstack-lead
+region = eu-central-1
+output = json
+[profile apstg-fullstack-lead]
+sso_session = andy-sso
+sso_account_id = 311141547983
+sso_role_name = denali-fullstack-lead
+region = ap-southeast-1
+output = json
+[profile approd-fullstack-lead]
+sso_session = andy-sso
+sso_account_id = 982081058082
+sso_role_name = denali-fullstack-lead-PROD-AP
+region = ap-southeast-1
+output = json
+[profile devind-fullstack-lead]
+sso_session = andy-sso
+sso_account_id = 886436970652
+sso_role_name = denali-fullstack-lead-STG-IND
+region = ap-south-1
+output = json
+[profile prodind-fullstack-lead]
+sso_session = andy-sso
+sso_account_id = 585008048310
+sso_role_name = denali-fullstack-lead-PROD-IND
+region = ap-south-1
+output = json

@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -104,7 +106,7 @@ plugins=(
     # Note: zsh-autosuggestions causes sequential kills (e.g. C-w) to overwrite the kill buffer rather than adding to it.
 )
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 # User configuration
 
