@@ -2,3 +2,10 @@ encryption = "age"
 [age]
     identity = "~/.config/age/key.txt"
     recipient = "age17nv2lejlnyz4gtwln4aphv60fuqtsytwhgn6vwhz2hv6v2mshqdswdyra0"
+
+[data]
+    is_work = {{ promptBoolOnce . "is_work" "Is this a work machine" }}
+
+[hooks.read-source-state.pre]
+    command = "bash"
+    args = [".local/share/chezmoi/.decrypt-age-key.sh"]
