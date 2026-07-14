@@ -41,3 +41,5 @@
 	trustExitCode = true
 [mergetool "bc3"]
 	trustExitCode = true
+[init]
+	defaultBranch = main
