@@ -12,11 +12,11 @@ TEMP_ENC_KEY=$(mktemp /tmp/key.txt.age.XXXXXX)
 # Define a cleanup function
 cleanup() {
     echo "Cleaning up temporary installation files..."
-    rm -f "$TEMP_ENC_KEY"
+    rm -f "$TEMP_ENC_KEY" "$HOME/bootstrap.sh" "$HOME/key.txt.age"
 }
 
-# Register the cleanup function to run on EXIT, errors (ERR), or interruptions (SIGINT, SIGTERM)
-trap cleanup EXIT ERR INT TERM
+# Register the cleanup function to run once when the script exits
+trap cleanup EXIT
 
 echo "========================================="
 echo "   Starting Dotfiles Bootstrap Process   "
