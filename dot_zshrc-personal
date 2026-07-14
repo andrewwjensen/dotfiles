@@ -9,7 +9,8 @@
 # Set up the environment variables
 ################################################################
 
-export GPG_TTY=$(tty)
+GPG_TTY=$(tty)
+export GPG_TTY
 
 export BC_LINE_LENGTH=0
 
@@ -30,7 +31,8 @@ export COLUMNS LINES
 export EDITOR=/Applications/Emacs.app/Contents/MacOS/bin-arm64-11/emacsclient
 
 if [ -r "${HOME}/.github-token" ]; then
-  export HOMEBREW_GITHUB_API_TOKEN="$(cat "${HOME}/.github-token")"
+  HOMEBREW_GITHUB_API_TOKEN="$(cat "${HOME}/.github-token")"
+  export HOMEBREW_GITHUB_API_TOKEN
 fi
 
 # How many history events to keep in memory
@@ -40,8 +42,8 @@ export SAVEHIST=99999
 
 # Set up source highlighting for "less" command
 export LESS="-XR"
-lesspipe=/usr/local/bin/lesspipe.sh
-[ -x ${lesspipe} ] || lesspipe=/usr/bin/lesspipe
+less_pipe=/usr/local/bin/less_pipe.sh
+[ -x ${less_pipe} ] || less_pipe=/usr/bin/less_pipe
 
 src_highlight=/usr/local/bin/source-highlight-esc.sh
 [ -x ${src_highlight} ] || src_highlight=/usr/bin/source-highlight-esc.sh
@@ -53,10 +55,10 @@ if [ -x ${highlight} ]; then
   # Prefer highlight to source-highlight
   export LESSOPEN="| ${highlight} --out-format=xterm256 %s"
 elif [ -x ${src_highlight} ]; then
-  export LESSOPEN='| ${src_highlight} %s -o STDOUT 2>/dev/null'
-elif [ -x ${lesspipe} ]; then
-  # Use lesspipe if neither highlighter is present
-  eval "$(SHELL=/bin/sh ${lesspipe})"
+  export LESSOPEN="| ${src_highlight} %s -o STDOUT 2>/dev/null"
+elif [ -x ${less_pipe} ]; then
+  # Use less_pipe if neither highlighter is present
+  eval "$(SHELL=/bin/sh ${less_pipe})"
 fi
 
 # How much output of the auto-completion list to display automatically without
@@ -85,8 +87,9 @@ export PIPENV_IGNORE_VIRTUALENVS=1
 # GNOME Terminal default: -A-Za-z0-9./?%&#:_=+@~
 export WORDCHARS='!#%*.?[]_~'
 
-if [ -r ${HOME}/.printer ]; then
-  export PRINTER=$(cat ${HOME}/.printer)
+if [ -r "${HOME}/.printer" ]; then
+  PRINTER=$(cat "${HOME}/.printer")
+  export PRINTER
   export LPDEST=${PRINTER}
 fi
 
@@ -96,10 +99,10 @@ fi
 
 case $(uname -s) in
 Darwin)
-  LS_OPTS="-eGOT"
-  alias lll="/bin/ls ${LS_OPTS} -@AFhl"
+  ls_opts="-eGOT"
+  alias lll="/bin/ls ${ls_opts} -@AFhl"
   ;;
-*) LS_OPTS="--color" ;;
+*) ls_opts="--color" ;;
 esac
 
 alias ag='ag --hidden' # --hidden to search dot-files
@@ -115,9 +118,9 @@ alias cln='/bin/rm -f *~(.ND)' # set NULL_GLOB and GLOB_DOTS for this pattern
 alias dirs='dirs -p'
 alias h='fc -lfD -100'
 alias hd='hexdump -C'
-alias ll="ls ${LS_OPTS} -AFhl"
-alias ls="ls ${LS_OPTS} -F"
-alias lsa="ls ${LS_OPTS} -AFs"
+alias ll="ls ${ls_opts} -AFhl"
+alias ls="ls ${ls_opts} -F"
+alias lsa="ls ${ls_opts} -AFs"
 alias lla="ls --color -AFhl"
 alias mpage='mpage -m9lt10r41b'
 alias mq='hg -R $(hg root --mq)'
@@ -126,7 +129,7 @@ alias pd='pushd'
 alias pdd='pushd +0'
 alias pdiff='git diff --no-index --patience'
 alias psa="ps auxww"
-alias psme="psa | grep -v grep | egrep 'PID|${USER}'"
+alias psme='psa | grep -v grep | egrep "PID|${USER}"'
 alias s="sso devds-architect"
 alias sa="s; a"
 alias s2n="tr ' ' '\012' | egrep -v '^ *$'"
@@ -134,13 +137,15 @@ alias setpaths='eval $(python3 ${HOME}/.setpaths.py)'
 alias trunc="expand | cut -c 1-\${COLUMNS}"
 alias urldecode='python -c "import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))"'
 alias urlencode='python -c "import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]))"'
-alias v="vim -u ${HOME}/.vimrc.less"
+alias v='vim -u ${HOME}/.vimrc.less'
 alias vg='valgrind --leak-check=full --show-reachable=yes --log-file=vg.out --num-callers=20'
 alias vgs='vg --suppressions=${HOME}/.valgrind_suppressions'
 alias vtn='echo "X[mX(BX)0OX[?5lX7X[rX8" | tr "XO" "\033\017"'
 alias whence='whence -va'
 alias xmod='chmod +x'
 alias z='exec /usr/local/bin/zsh'
+
+unset ls_opts
 
 ################################################################
 # zsh control
@@ -171,31 +176,31 @@ bindkey "^[l" down-case-word
 ################################################################
 # setopt AUTONAMEDIRS     # see zshoptions(1)
 # setopt allExport        # automatically export any variable set in the shell
-setopt alwaysLastPrompt     # see zshoptions(1)
-setopt alwaysToEnd          # see zshoptions(1)
-setopt appendHistory        # append history to history file rather than overwrite
-unsetopt autoList           # automatically list chices on ambiguous completion
-unsetopt autoMenu           # automatically use menu completion on repeated TABS
-setopt autoParamKeys        # see zshoptions(1)
-setopt autoParamSlash       # add slash after directory names in completion
-unsetopt autoRemoveSlash    # remove trailing completed slashes
-unsetopt cd_ableVars        # allow cd to path in a variable w/o using '$'
-setopt completeInWord       # allow tab completion in the middle of a word
-setopt correct              # correct spelling of commands
-setopt extendedGlob         # use # ~ and ^ for filename generation
-setopt extendedHistory      # save timestamp and elapsed time with each history entry
-setopt hashCmds             # put location of cmd in hash table after first use
-setopt hashDirs             # hash entire contents of bin directories
-setopt hashListAll          # see zshoptions(1)
-setopt histExpireDupsFirst  # remove duplicate history items before older unique ones
-setopt histFindNoDups       # don't show duplicate lines when repeatedly searching
-setopt histIgnoreDups       # don't put two consecutive identical cmd in history
-setopt histIgnoreSpace      # don't put cmd in history if it starts with a space
-setopt histNoStore          # don't put history cmds in history
-unsetopt histReduceBlanks   # a zsh 5.0.2 bug removes too much with this option set
-setopt incAppendHistoryTime # append to history file right after command completes, not at exit
-if (( SHLVL == 1 && EUID != 0 )); then # Only restrict top-level login shell for non-root users
-  setopt ignoreEOF # do not exit on EOF (i.e. Ctrl-D); require typing "exit" or "logout"
+setopt alwaysLastPrompt              # see zshoptions(1)
+setopt alwaysToEnd                   # see zshoptions(1)
+setopt appendHistory                 # append history to history file rather than overwrite
+unsetopt autoList                    # automatically list chices on ambiguous completion
+unsetopt autoMenu                    # automatically use menu completion on repeated TABS
+setopt autoParamKeys                 # see zshoptions(1)
+setopt autoParamSlash                # add slash after directory names in completion
+unsetopt autoRemoveSlash             # remove trailing completed slashes
+unsetopt cd_ableVars                 # allow cd to path in a variable w/o using '$'
+setopt completeInWord                # allow tab completion in the middle of a word
+setopt correct                       # correct spelling of commands
+setopt extendedGlob                  # use # ~ and ^ for filename generation
+setopt extendedHistory               # save timestamp and elapsed time with each history entry
+setopt hashCmds                      # put location of cmd in hash table after first use
+setopt hashDirs                      # hash entire contents of bin directories
+setopt hashListAll                   # see zshoptions(1)
+setopt histExpireDupsFirst           # remove duplicate history items before older unique ones
+setopt histFindNoDups                # don't show duplicate lines when repeatedly searching
+setopt histIgnoreDups                # don't put two consecutive identical cmd in history
+setopt histIgnoreSpace               # don't put cmd in history if it starts with a space
+setopt histNoStore                   # don't put history cmds in history
+unsetopt histReduceBlanks            # a zsh 5.0.2 bug removes too much with this option set
+setopt incAppendHistoryTime          # append to history file right after command completes, not at exit
+if ((SHLVL == 1 && EUID != 0)); then # Only restrict top-level login shell for non-root users
+  setopt ignoreEOF                   # do not exit on EOF (i.e. Ctrl-D); require typing "exit" or "logout"
 fi
 unsetopt markDirs      # put / after directory names in filename generation
 setopt menuComplete    # cycle through choices on TAB
@@ -215,30 +220,16 @@ setopt ZLE             # use zsh line editor
 # Functions to make things easier and more pleasing
 ################################################################
 
-#### TRANE FUNCTIONS ####
-
 # For powerlevel10k prompt element "aws_profile" displaying the current AWS profile
 function prompt_aws_profile() {
   p10k segment -b 5 -f 7 -e -t '${AWS_PROFILE}'
 }
 
-function profile() {
-  case ${1} in
-  "") ;;
-  clear)
-    unset AWS_PROFILE
-    unset AWS_DEFAULT_PROFILE
-    unset KUBECONFIG
-    ;;
-  *)
-    export AWS_PROFILE="${1}"
-    export AWS_DEFAULT_PROFILE="${1}"
-    export export KUBECONFIG="${HOME}/.kube/${1}"
-    ;;
-  esac
-  echo "${AWS_PROFILE+AWS_PROFILE=}${AWS_PROFILE}"
-  echo "${AWS_DEFAULT_PROFILE+AWS_DEFAULT_PROFILE=}${AWS_DEFAULT_PROFILE}"
-  echo "${KUBECONFIG+KUBECONFIG=}${KUBECONFIG}"
+function prompt_shell_level() {
+  # Only show the segment if you are nested (SHLVL > 1)
+  if ((SHLVL > 1)); then
+    p10k segment -f 208 -i '🐚' -t "lvl $((SHLVL))"
+  fi
 }
 
 function sso() {
@@ -292,14 +283,11 @@ function a() {
   source "$activate_script_path"
 }
 
-#### END TRANE FUNCTIONS ####
-
 # Make sure the function 'd' defined by oh-my-zsh is removed so my own compiled
 # executable that parses and shows dates is used instead.
 unfunction d 2>/dev/null || true
 
 # Convert CR to line feed
-
 function crlf() {
   tr '\015' '\012'
 }
@@ -312,26 +300,11 @@ function gdiff() {
   git diff "${1}^" "${1}"
 }
 
-function gmeld() {
-  git meld "${1}^" "${1}"
-}
-
-# For git workflow, two commands to create and delete branch
-
-function go() {
-  branch=$1
-  if [ -z "$1" ]; then
-    branch=ajensen
-  fi
-  git branch ${branch}
-  git checkout ${branch}
-}
-
 function listening() {
   if [ $# -eq 0 ]; then
     sudo lsof -iTCP -sTCP:LISTEN -n -P
   elif [ $# -eq 1 ]; then
-    sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
+    sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color "$1"
   else
     echo "Usage: listening [pattern]"
   fi
@@ -342,7 +315,7 @@ function og() { # reverse spelling of "go"
   if [[ ${current_branch} != "master" ]]; then
     git checkout master
     git pull -p
-    git branch -d ${current_branch}
+    git branch -d "${current_branch}"
   fi
 }
 
@@ -364,29 +337,18 @@ function kk() {
   done
 }
 
-# function to label xterm window to arg list
-
-function label() {
-  case "${TERM}" in
-  vt100 | vs100 | xterm*) echo -n "\e]0;$*\007" ;;
-  esac
-}
-
 # Convert line feed to CR
-
 function lfcr() {
   tr '\012' '\015'
 }
 
 # make directory and change to it
-
 function mcd() {
-  mkdir -p $1
-  cd $1
+  mkdir -p "$1"
+  cd "$1" || return
 }
 
 # Remove LF from stdout
-
 function nolf() {
   tr -d '\012'
 }
@@ -394,7 +356,7 @@ function nolf() {
 function sleep_until() {
   seconds=$(($(date -d "$*" +%s) - $(date +%s)))
   if [[ $seconds -lt 0 && $seconds -gt -86400 ]]; then
-    seconds=$(($seconds + 86400))
+    seconds=$((seconds + 86400))
   fi
   if [[ $seconds -gt 0 ]]; then
     echo "Sleeping for $seconds seconds"
@@ -417,11 +379,11 @@ function tm() {
   for ((i = 1; ; ++i)); do
     # "|| break" allows us to catch Ctrl-C properly and terminate the loop
     strftime -s date "%c" ${EPOCHSECONDS} || break
-    echo "${date}  $i" | tr '\012' '\015' || break
+    echo "$(date) $i" | tr '\012' '\015' || break
   done
   # Overwrite "^C" on the terminal with the last date
-  echo -n "\r"
-  echo "${date}  $i"
+  printf "\r"
+  echo "$(date)  $i"
 }
 
 function wait_for_file() {
@@ -444,12 +406,12 @@ fi
 
 # Source some other files if they exist
 sources=(
-  ${HOME}/.zshrc.$(hostname -s)
-  ${HOME}/.zshrc.local
+  "${HOME}/.zshrc.$(hostname -s)"
+  "${HOME}/.zshrc.local"
 )
-for fn in ${sources}; do
-  if [ -r ${fn} ]; then
-    source ${fn}
+for fn in "${sources[@]}"; do
+  if [ -r "${fn}" ]; then
+    source "${fn}"
   fi
 done
 

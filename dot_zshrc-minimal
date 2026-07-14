@@ -1,7 +1,6 @@
 #!/bin/zsh
 
-autoload -U colors
-colors
+autoload -U colors && colors
 
 setopt appendHistory
 setopt autoParamSlash
@@ -26,13 +25,15 @@ setopt numericGlobSort
 setopt pushdIgnoreDups
 setopt pushdSilent
 
-export HISTFILE=~/.zsh_history
+HISTFILE=~/.zsh_history
+export HISTFILE
 export HISTSIZE=1000
 export LISTMAX=0
 export SAVEHIST=1000
 export PAGER="less"
-export PROMPT="%$(expr ${COLUMNS} + 5)>>%{$fg_bold[red]%}%D{%a %b %e %T %Z %Y} %{${fg_bold[cyan]}%}%n%{$reset_color%}@%{$fg_bold[green]%}%m%{${fg_bold[red]}%}________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________%<<
+PROMPT="%$(expr ${COLUMNS} + 5)>>%{${fg_bold[red]}%}%D{%a %b %e %T %Z %Y} %{${fg_bold[cyan]}%}%n%{$reset_color%}@%{$fg_bold[green]%}%m%{${fg_bold[red]}%}________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________%<<
 %{${fg[red]}%}%(?..[%?%1v] )%{$reset_color%}zsh${ZSH_VERSION}%(2L./${SHLVL}.) %(2v.%U%2v%u .)%{$fg_bold[cyan]%}%h%#%{$reset_color%} "
+export PROMPT
 export RPROMPT="%{$fg[green]%}%~%{$reset_color%}%"
 export WORDCHARS='*?_[]~!#%.-'
 
@@ -58,6 +59,6 @@ is-at-least 4.3.9 && bindkey "\C-s" history-incremental-pattern-search-forward
 
 # make directory and change to it
 function mcd {
-    mkdir -p $1
-    cd $1
+    mkdir -p "$1"
+    cd "$1" || return
 }
