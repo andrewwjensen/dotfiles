@@ -38,6 +38,7 @@
     # =========================[ Line #2 ]=========================
     newline                 # \n
     aws_profile             # defined by function prompt_aws_profile() in .zshrc-personal
+    shell_level             # integer; 1=base shell, >1 is depth of subshell
     prompt_char             # prompt symbol
   )
 
@@ -1832,6 +1833,13 @@
   # If p10k is already loaded, reload configuration.
   # This works even with POWERLEVEL9K_DISABLE_HOT_RELOAD=true.
   (( ! $+functions[p10k] )) || p10k reload
+}
+
+function prompt_shell_level() {
+  # Only show the segment if you are nested (SHLVL > 1)
+  if (( SHLVL > 1 )); then
+    p10k segment -f 208 -i '🐚' -t "lvl $((SHLVL))"
+  fi
 }
 
 # Tell `p10k configure` which file it should overwrite.

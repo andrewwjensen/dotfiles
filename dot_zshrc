@@ -101,7 +101,7 @@ plugins=(
     virtualenv
     web-search
     # Note: wd breaks C-o which should load the next history command into the new prompt. Instead, you get a clean prompt.
-#     wd
+    # Note: zsh-autosuggestions causes sequential kills (e.g. C-w) to overwrite the kill buffer rather than adding to it.
 )
 
 source $ZSH/oh-my-zsh.sh
