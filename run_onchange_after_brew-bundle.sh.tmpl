@@ -1,0 +1,8 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+# Brewfile hash: {{ include (joinPath .chezmoi.sourceDir "private_dot_homebrew/Brewfile") | sha256sum }}
+# The line above forces chezmoi to re-run this script whenever the Brewfile changes.
+
+brew bundle --global
+{{ end -}}
