@@ -106,10 +106,7 @@
  '(backup-directory-alist '(("." . "~/.emacs.d/backups")))
  '(blink-cursor-mode nil)
  '(c-default-style
-   '((c-mode . "dss")
-     (c++-mode . "dss")
-     (java-mode . "java")
-     (awk-mode . "awk")
+   '((c-mode . "dss") (c++-mode . "dss") (java-mode . "java") (awk-mode . "awk")
      (other . "gnu")))
  '(column-number-mode t)
  '(desktop-load-locked-desktop t)
@@ -122,15 +119,13 @@
  '(mouse-yank-at-point t)
  '(ns-command-modifier 'meta)
  '(package-selected-packages
-   '(company consult graphviz-dot-mode lua-mode marginalia orderless undo-tree vertico))
+   '(company consult embark embark-consult graphviz-dot-mode lua-mode marginalia orderless
+             undo-tree vertico))
  '(printer-name "Brother_MFC_L8850CDW")
  '(projectile-enable-caching nil)
  '(safe-local-variable-values
-   '((c-file-style . andy)
-     (checkdoc-minor-mode . t)
-     (require-final-newline . t)
-     (mangle-whitespace . t)
-     (py-indent-offset . 4)))
+   '((c-file-style . andy) (checkdoc-minor-mode . t) (require-final-newline . t)
+     (mangle-whitespace . t) (py-indent-offset . 4)))
  '(save-interprogram-paste-before-kill t)
  '(sentence-end-double-space nil)
  '(session-use-package t)

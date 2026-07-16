@@ -16,6 +16,18 @@
   (setq graphviz-dot-indent-width 4))
 (add-hook 'graphviz-dot-mode-hook 'company-mode)
 
+(use-package embark-consult
+  :ensure t
+  :after (embark consult)
+  :hook
+  (embark-collect-mode . consult-preview-at-point-mode))
+
+(use-package embark
+  :ensure t
+  :bind
+  (("C-." . embark-act)         ;; Trigger actions from any prompt
+   ("M-." . embark-dwim)))      ;; "Do What I Mean" contextual action
+
 ;; Download yaml-mode.el from: https://github.com/yoshiki/yaml-mode
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
