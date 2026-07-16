@@ -233,7 +233,7 @@ function prompt_aws_profile() {
 function prompt_shell_level() {
   # Only show the segment if you are nested (SHLVL > 1)
   if ((SHLVL > 1)); then
-    p10k segment -f 208 -i '🐚' -t "lvl $((SHLVL))"
+    p10k segment -b 057 -f white -i '🐚' -t "lvl $((SHLVL))"
   fi
 }
 
