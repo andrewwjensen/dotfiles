@@ -1,0 +1,14 @@
+#!/bin/sh
+# downcase: convert all filenames to all lowercase letters
+
+for fname
+do
+  newname=`echo ${fname} | tr "[A-Z]" "[a-z]"`
+  if [ "$newname" != "${fname}" ]; then
+    if [ -f "${newname}" ]; then
+      echo "${newname} already exists...skipping ${fname}..."
+    else
+      mv -i "${fname}" "${newname}"
+    fi
+  fi
+done

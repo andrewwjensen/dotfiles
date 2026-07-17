@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+delim="|"
+no=0
+
+case $1 in
+  -d) delim=$2; shift 2;;
+  -d*) delim=$(echo "$1" | sed -e 's,^-d,,'); shift;;
+  -n) no=1; shift;;
+esac
+
+rex=$1
+sub=$2
+shift 2
+
+for f1
+do 
+  f2=$(echo "$f1" | sed -e "s${delim}${rex}${delim}${sub}${delim}g")
+  if [ "$f1" != "$f2" ]; then
+    echo mv $f1 $f2
+    if [ "$no" = "0" ]; then
+      mv "$f1" "$f2"
+    fi
+  fi
+done
