@@ -634,7 +634,7 @@
 	<key>EnableAPIServer</key>
 	<true/>
 	<key>EnableRendezvous</key>
-	<true/>
+	<false/>
 	<key>EscapeShellCharsWithBackslash</key>
 	<false/>
 	<key>FocusFollowsMouse</key>
