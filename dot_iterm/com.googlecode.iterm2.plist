@@ -16,8 +16,6 @@
 	<integer>2</integer>
 	<key>AIVectorStore</key>
 	<integer>0</integer>
-	<key>AboutToPasteTabsWithCancel</key>
-	<true/>
 	<key>AboutToPasteTabsWithCancel_selection</key>
 	<integer>2</integer>
 	<key>AiMaxTokens</key>
@@ -28,16 +26,6 @@
 	<integer>128000</integer>
 	<key>AitermURL</key>
 	<string>https://api.openai.com/v1/responses</string>
-	<key>AppleAntiAliasingThreshold</key>
-	<integer>1</integer>
-	<key>ApplePressAndHoldEnabled</key>
-	<false/>
-	<key>AppleScrollAnimationEnabled</key>
-	<integer>0</integer>
-	<key>AppleSmoothFixedFontsSizeThreshold</key>
-	<integer>1</integer>
-	<key>AppleWindowTabbingMode</key>
-	<string>manual</string>
 	<key>AutoCommandHistory</key>
 	<false/>
 	<key>BracketedPasteMode</key>
@@ -2688,6 +2676,8 @@
 		</dict>
 	</dict>
 	<key>Print In Black And White</key>
+	<true/>
+	<key>PromptForPasteWhenNotAtPrompt</key>
 	<true/>
 	<key>PromptOnQuit</key>
 	<false/>

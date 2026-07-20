@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Produced by Beyond Compare 5 from Scooter Software -->
+<BCPreferences Version="2" MinVersion="2">
+	<TBcPrefs>
+		<BackupDir Value="/Users/u203968/.backups/BC"/>
+		<BackupOnSave Value="True"/>
+		<FileCheckForChangesAutoReload Value="True"/>
+		<NextDiffAfterCopy Value="True"/>
+		<NextDiffLoadFirst Value="True"/>
+		<TextRightGutter Value="True"/>
+		<TextSyntaxDiffs Value="True"/>
+		<TextUseOrphanColor Value="True"/>
+		<Workspaces>
+			<Item Value="&#1;">
+				<Windows>
+					<_0>
+						<PosStr Value="61;34;1728;1117;M"/>
+						<Tabs>
+							<_0>
+								<ZOrder Value="0"/>
+							</_0>
+						</Tabs>
+						<ZOrder Value="0"/>
+					</_0>
+				</Windows>
+			</Item>
+		</Workspaces>
+	</TBcPrefs>
+</BCPreferences>

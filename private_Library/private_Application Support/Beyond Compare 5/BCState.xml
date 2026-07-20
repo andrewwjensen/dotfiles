@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Produced by Beyond Compare 5 from Scooter Software -->
+<BCState Version="2" MinVersion="2">
+	<TBcState>
+		<FirstStartup Value="False"/>
+		<FormPositions>
+			<TAboutDialog Value="-744;568;-226;897"/>
+			<TCheckForUpdatesDialog Value="657;422;1131;729"/>
+			<TDirCompareSessionDialog Value="-695;483;-184;988"/>
+			<TDownloadUpdateDialog Value="646;500;1143;651"/>
+			<TExportDialog Value="695;415;1093;736"/>
+			<TImportDialog Value="-437;563;-39;907"/>
+			<TNagDialog Value="820;1741;1308;1959"/>
+			<TProgOptionsDialog Value="61;466;819;999"/>
+			<TTextCompareSessionDialog Value="-493;483;18;988"/>
+			<TView Value="-1518;31;1042;1440;M"/>
+		</FormPositions>
+	</TBcState>
+	<TCheckForUpdatesState>
+		<Build Value="32296"/>
+		<LastChecked Value="2026-07-14 21:25:59"/>
+	</TCheckForUpdatesState>
+	<TDirCompareState>
+		<LeftMRUSpecs>
+			<_0 Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/english_1"/>
+			<_1 Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/spanish_1"/>
+			<_2 Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/canadian_french_1"/>
+			<_3 Value="/private/var/folders/29/s6sj13555l30rmf62srytfnm0000gp/T/git-difftool.qAvMAa/left"/>
+			<_4 Value="/private/var/folders/29/s6sj13555l30rmf62srytfnm0000gp/T/git-difftool.NbhzkA/left"/>
+			<_5 Value="/private/var/folders/29/s6sj13555l30rmf62srytfnm0000gp/T/git-difftool.QGSHYK/left"/>
+			<_6 Value="/private/var/folders/29/s6sj13555l30rmf62srytfnm0000gp/T/git-difftool.xXZD8j/left"/>
+			<_7 Value="/private/var/folders/29/s6sj13555l30rmf62srytfnm0000gp/T/git-difftool.XnkVQf/left"/>
+			<_8 Value="/Users/u203968/IdeaProjects/denali-digital-backend.amplify-push/amplify/backend/function/ConfigTableManager"/>
+		</LeftMRUSpecs>
+		<RightMRUSpecs>
+			<_0 Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/english_2"/>
+			<_1 Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/spanish_2"/>
+			<_2 Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/canadian_french_2"/>
+			<_3 Value="/private/var/folders/29/s6sj13555l30rmf62srytfnm0000gp/T/git-difftool.qAvMAa/right"/>
+			<_4 Value="/private/var/folders/29/s6sj13555l30rmf62srytfnm0000gp/T/git-difftool.NbhzkA/right"/>
+			<_5 Value="/private/var/folders/29/s6sj13555l30rmf62srytfnm0000gp/T/git-difftool.QGSHYK/right"/>
+			<_6 Value="/private/var/folders/29/s6sj13555l30rmf62srytfnm0000gp/T/git-difftool.xXZD8j/right"/>
+			<_7 Value="/private/var/folders/29/s6sj13555l30rmf62srytfnm0000gp/T/git-difftool.XnkVQf/right"/>
+			<_8 Value="/Users/u203968/IdeaProjects/denali-digital-backend.amplify-push/amplify/backend/function/OpenSearch"/>
+		</RightMRUSpecs>
+	</TDirCompareState>
+	<THomeState>
+		<SessionType Value="TTextCompareSession"/>
+	</THomeState>
+	<TImportState>
+		<MRUFilename Value="/Users/u203968/Documents/BCSettings.bcpkg"/>
+	</TImportState>
+	<TTextCompareState>
+		<LeftMRUSpecs>
+			<_0 Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/good"/>
+			<_1 Value="/Users/u203968/Downloads/tools_zendesk.py"/>
+			<_2 Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/session1.json"/>
+			<_3 Value="/Users/u203968/IdeaProjects/denali-digital-backend/gql"/>
+			<_4 Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/english_1/prompt-10.md"/>
+			<_5 Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/english_1/prompt-09.md"/>
+			<_6 Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/english_1/prompt-08.md"/>
+			<_7 Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/english_1/prompt-07.md"/>
+			<_8 Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/english_1/prompt-06.md"/>
+		</LeftMRUSpecs>
+		<MRUFonts>
+			<_0 Value="default;12;;;F"/>
+		</MRUFonts>
+		<RightMRUSpecs>
+			<_0 Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/bad"/>
+			<_1 Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/mcp_server/tools_zendesk.py"/>
+			<_2 Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/session4.json"/>
+			<_3 Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/session3.json"/>
+			<_4 Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/session2.json"/>
+			<_5 Value="/Users/u203968/IdeaProjects/denali-digital-backend/ddb"/>
+			<_6 Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/english_2/prompt-10.md"/>
+			<_7 Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/english_2/prompt-09.md"/>
+			<_8 Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/english_2/prompt-08.md"/>
+		</RightMRUSpecs>
+		<ShowItemNum Value="True"/>
+	</TTextCompareState>
+	<TTextMergeState>
+		<CenterMRUSpecs>
+			<_0 Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/spanish.md"/>
+			<_1 Value="/Users/u203968/IdeaProjects/denali-digital-backend/results9/orig/result7-listCustomUserAccessByUser.json"/>
+			<_2 Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client_query_optimized.js"/>
+		</CenterMRUSpecs>
+		<LeftMRUSpecs>
+			<_0 Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/english.md"/>
+			<_1 Value="/Users/u203968/IdeaProjects/denali-digital-backend/results9/ddb/result7-listCustomUserAccessByUser.json"/>
+			<_2 Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client.js"/>
+		</LeftMRUSpecs>
+		<MRUFonts>
+			<_0 Value="default;12;;;F"/>
+		</MRUFonts>
+		<RightMRUSpecs>
+			<_0 Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/french.md"/>
+			<_1 Value="/Users/u203968/IdeaProjects/denali-digital-backend/results9/new/result7-listCustomUserAccessByUser.json"/>
+			<_2 Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client_query.js"/>
+		</RightMRUSpecs>
+	</TTextMergeState>
+</BCState>

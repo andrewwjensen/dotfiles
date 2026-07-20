@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Produced by Beyond Compare 5 from Scooter Software -->
+<BCSessions Version="2" MinVersion="2">
+	<TSessionFolder>
+		<Items>
+			<TSessionFolder>
+				<Items>
+					<TTextCompareSession Value="good &lt;--> bad">
+						<LastModified Value="2026-07-20 08:29:33"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/good"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/bad"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TDirCompareSession Value="canadian_french_1 &lt;--> canadian_french_2">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Rules>
+							<AutoBuildTopOrphans Value="True"/>
+							<FollowSymLinks Value="True"/>
+						</Rules>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/canadian_french_1"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/canadian_french_2"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TDirCompareSession>
+					<TDirCompareSession Value="ConfigTableManager &lt;--> OpenSearch">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Rules>
+							<AlignWiths>
+								<_0>
+									<FindText Value="ConfigTableManager-cloudformation-template.json"/>
+									<PathMask Value="./"/>
+									<ReplaceText Value="OpenSearch-cloudformation-template.json"/>
+								</_0>
+							</AlignWiths>
+						</Rules>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend.amplify-push/amplify/backend/function/ConfigTableManager"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend.amplify-push/amplify/backend/function/OpenSearch"/>
+						</Specs>
+					</TDirCompareSession>
+					<TDirCompareSession Value="english_1 &lt;--> english_2">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Rules>
+							<AutoBuildTopOrphans Value="True"/>
+							<FollowSymLinks Value="True"/>
+						</Rules>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/english_1"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/english_2"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TDirCompareSession>
+					<TDirCompareSession Value="spanish_1 &lt;--> spanish_2">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Rules>
+							<AutoBuildTopOrphans Value="True"/>
+							<FollowSymLinks Value="True"/>
+						</Rules>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/spanish_1"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/spanish_2"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TDirCompareSession>
+					<TTextCompareSession Value="68.json &lt;--> 69.json">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/68.json"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/69.json"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="69.json &lt;--> 70.json">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/69.json"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/70.json"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="69.json &lt;--> 71.json">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/69.json"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/71.json"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="a &lt;--> b">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/a"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/b"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="ad.js &lt;--> b2c.js">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/ad.js"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/b2c.js"/>
+						</Specs>
+					</TTextCompareSession>
+					<TTextCompareSession Value="chat_server_agentcore_haiku.py &lt;--> chat_server_agentcore.py">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/chat_server/chat_server_agentcore_haiku.py"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/chat_server/chat_server_agentcore.py"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="debug.js &lt;--> debug-new.js">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/MutateUserAccess/src/debug.js"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/MutateUserAccess/src/debug-new.js"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="devds.schema.graphql &lt;--> prod.schema.graphql">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/Downloads/graphql/devds.schema.graphql"/>
+							<Right Value="/Users/u203968/Downloads/graphql/prod.schema.graphql"/>
+						</Specs>
+					</TTextCompareSession>
+					<TTextCompareSession Value="dynamo_client.js &lt;--> dynamo_client_orig_optimized.js">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend.amplify-push/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client.js"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client_orig_optimized.js"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="dynamo_client.js &lt;--> dynamo_client_orig_optimized.js">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client.js"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client_orig_optimized.js"/>
+						</Specs>
+					</TTextCompareSession>
+					<TTextCompareSession Value="dynamo_client.js &lt;--> dynamo_client_query.js">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client.js"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client_query.js"/>
+						</Specs>
+					</TTextCompareSession>
+					<TTextCompareSession Value="dynamo_client_orig.js &lt;--> dynamo_client_orig_optimized.js">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client_orig.js"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client_orig_optimized.js"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="dynamo_client_orig.js &lt;--> dynamo_client_scan.js">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client_orig.js"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client_scan.js"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="dynamo_client_query.js &lt;--> dynamo_client_query_optimized.js">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client_query.js"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client_query_optimized.js"/>
+						</Specs>
+					</TTextCompareSession>
+					<TTextCompareSession Value="dynamo_client_scan.js &lt;--> dynamo_client.js">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client_scan.js"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client.js"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="event8-listUsersByAccesses.json &lt;--> x.json">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/MutateUserAccess/src/event8-listUsersByAccesses.json"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/MutateUserAccess/src/x.json"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="filter.json &lt;--> event8-listUsersByAccesses.json">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/filter.json"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/MutateUserAccess/src/event8-listUsersByAccesses.json"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="gql &lt;--> ddb">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/gql"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/ddb"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="index-orig.js &lt;--> index-new.js">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/MutateUserAccess/src/index-orig.js"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/MutateUserAccess/src/index-new.js"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="index.js &lt;--> index-new.js">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/MutateUserAccess/src/index.js"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/MutateUserAccess/src/index-new.js"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="index.py &lt;--> index-by_file.py">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/AnalyticsSiteReadiness/src/index.py"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/AnalyticsSiteReadiness/src/index-by_file.py"/>
+						</Specs>
+					</TTextCompareSession>
+					<TTextCompareSession Value="module.cpp &lt;--> module2.cpp">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/module.cpp"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/module2.cpp"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="OptinDBScript.py &lt;--> tisoptin.py">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Rules>
+							<Insigs>
+								<_0>
+									<FindText Value="_"/>
+								</_0>
+							</Insigs>
+							<NonWSSig Value="False"/>
+						</Rules>
+						<Specs>
+							<Left Value="/Users/u203968/dev/util/tis/OptinDBScript.py"/>
+							<Right Value="/Users/u203968/IdeaProjects/bpoptin/tisoptin.py"/>
+						</Specs>
+					</TTextCompareSession>
+					<TTextCompareSession Value="prompt-21.md &lt;--> promt-21.md.bak">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/spanish_3/prompt-21.md"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/spanish_3/promt-21.md.bak"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="prompt-23-run-00.md &lt;--> prompt-23-run-01.md">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/english/prompt-23-run-00.md"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/output/english/prompt-23-run-01.md"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="result7-listCustomUserAccessByUser.json">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/results9/ddb/result7-listCustomUserAccessByUser.json"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/results9/new/result7-listCustomUserAccessByUser.json"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="result7-listCustomUserAccessByUser.json">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/results9/new/result7-listCustomUserAccessByUser.json"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/results9/orig/result7-listCustomUserAccessByUser.json"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="scan.log &lt;--> scan-minimal.log">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/scan.log"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/scan-minimal.log"/>
+						</Specs>
+					</TTextCompareSession>
+					<TTextCompareSession Value="session1.json &lt;--> session2.json">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/session1.json"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/session2.json"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="session1.json &lt;--> session3.json">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/session1.json"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/session3.json"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="session1.json &lt;--> session4.json">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/session1.json"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/session4.json"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="tools_zendesk.py">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/Downloads/tools_zendesk.py"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/mcp_server/tools_zendesk.py"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="user-access-bulk-orig.js &lt;--> user-access-bulk.js">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/MutateUserAccess/src/user-access-bulk-orig.js"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/MutateUserAccess/src/user-access-bulk.js"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="user-roles.js &lt;--> index.js">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/MutateUserAccess/src/user-roles.js"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/MutateUserAccess/src/index.js"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="user3-added-kwiktrip.json &lt;--> user3-after.json">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/user3-added-kwiktrip.json"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/user3-after.json"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="user3-before.json &lt;--> user3-added-kwiktrip.json">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/user3-before.json"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/user3-added-kwiktrip.json"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="user3-before.json &lt;--> user3-after.json">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/user3-before.json"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/user3-after.json"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="x &lt;--> y">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/x"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/y"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextMergeSession Value="dynamo_client_query_optimized.js">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Center Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client_query_optimized.js"/>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client.js"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client_query.js"/>
+						</Specs>
+					</TTextMergeSession>
+					<TTextMergeSession Value="result7-listCustomUserAccessByUser.json">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Center Value="/Users/u203968/IdeaProjects/denali-digital-backend/results9/orig/result7-listCustomUserAccessByUser.json"/>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/results9/ddb/result7-listCustomUserAccessByUser.json"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/results9/new/result7-listCustomUserAccessByUser.json"/>
+						</Specs>
+					</TTextMergeSession>
+					<TTextMergeSession Value="spanish.md">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
+							<Center Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/spanish.md"/>
+							<Left Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/english.md"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/tmp/french.md"/>
+						</Specs>
+					</TTextMergeSession>
+					<TTextCompareSession Value="Brewfile">
+						<LastModified Value="2026-07-14 21:22:16"/>
+						<Specs>
+							<Left Value="/private/tmp/Brewfile"/>
+							<Right Value="/Users/u203968/.homebrew/Brewfile"/>
+						</Specs>
+					</TTextCompareSession>
+					<TTextCompareSession Value=".zshrc-personal &lt;--> dot_zshrc-personal">
+						<LastModified Value="2026-07-14 11:35:55"/>
+						<Specs>
+							<Left Value="/Users/u203968/.zshrc-personal"/>
+							<Right Value="/Users/u203968/.local/share/chezmoi/dot_zshrc-personal"/>
+						</Specs>
+					</TTextCompareSession>
+					<TTextCompareSession Value=".zshrc">
+						<LastModified Value="2026-07-09 11:02:59"/>
+						<Specs>
+							<Left Value="/Users/u203968/.zshrc"/>
+							<Right Value="/Users/u203968/unix-environment/env/.zshrc"/>
+						</Specs>
+					</TTextCompareSession>
+				</Items>
+			</TSessionFolder>
+			<TDirCompareSession>
+				<Rules>
+					<AutoBuildTopOrphans Value="True"/>
+					<FollowSymLinks Value="True"/>
+				</Rules>
+				<State>
+					<InsigIgnored Value="True"/>
+				</State>
+			</TDirCompareSession>
+			<TTextCompareSession>
+				<Rules>
+					<AlignKind Value="alignPatience"/>
+				</Rules>
+				<State>
+					<InsigIgnored Value="True"/>
+				</State>
+			</TTextCompareSession>
+		</Items>
+	</TSessionFolder>
+</BCSessions>
