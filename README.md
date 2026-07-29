@@ -30,7 +30,6 @@ Manual steps required after initializing a system with chezmoi.
    - GraphicConverter
 
 4. For `amplify push` to work:
-
    ```sh
    sudo chown -R $(whoami):staff /usr/local/*
    npm uninstall -g node
@@ -39,16 +38,17 @@ Manual steps required after initializing a system with chezmoi.
    npm install -g @aws-amplify/cli@12.10.0
    npm install -g npm@10.2.5
    ```
-5. Install Python versions via pyenv:
 
+5. Install Python versions via pyenv (may want to check for newer versions):
    ```sh
    pyenv install 3.11.15
    pyenv install 3.14.6
    pyenv global 3.14.6
+   pip install --upgrade pip wheel setuptools
+   pip install --user -r ~/.local/requirements.txt
    ```
    
 6. Check out unix-environment repo and compile custom tools:
-
    ```sh
    git clone https://bitbucket.org/andrewwjensen/unix-environment.git
    (cd ~/unix-environment/bin/src/mine; bazel build --verbose_failures :all) && d

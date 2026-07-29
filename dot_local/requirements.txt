@@ -1,0 +1,10 @@
+linkify-it-py
+markdown-it-py
+mdit-py-plugins
+mdurl
+platformdirs
+Pygments
+rich
+textual
+typing_extensions
+uc-micro-py
