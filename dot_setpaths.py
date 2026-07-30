@@ -5,85 +5,91 @@
 import os
 import sys
 from collections import deque
+from pathlib import Path
 
 debug = False
 
 
-def canon(directory):
+def canon(directory: Path) -> Path | None:
     """Return canonicalized path."""
-    if not directory or not os.path.isdir(directory):
+    if not directory or not directory.is_dir():
         return None
     else:
         return directory
 
 
-def parse_path_variable(var_name) -> deque[str]:
+def debug_path(msg, path):
+    if debug:
+        print(f'{msg}:\n  {"\n  ".join(map(str, path))}', file=sys.stderr)
+
+
+def parse_path_variable(var_name) -> deque[Path]:
     """Parse a path variable into a list of paths."""
     current_val = os.getenv(var_name)
     if current_val:
         # Keep only the first occurrence of each entry while preserving order.
-        return deque(dict.fromkeys(current_val.split(':')))
+        paths = deque(Path(p) for p in dict.fromkeys(current_val.split(os.pathsep)))
     else:
-        return deque()
+        paths = deque()
+    debug_path(f'{var_name} before modification', paths)
+    return paths
 
 
-def set_path_from_list(var_name: str, paths: list[str], /, sep=':'):
+def set_path_from_list(var_name: str, paths, /, sep=os.pathsep):
     """Output a shell command to set a path variable from a list of paths."""
     if paths:
-        print(f'export {var_name}="{sep.join(paths)}"')
+        print(f'export {var_name}="{sep.join(map(str, paths))}"')
+    debug_path(f'{var_name} after modification', paths)
 
 
-def add_path(paths: deque[str], path: str, /, sep=':', at_front=False):
+def add_path(paths: deque[Path], path_str: str | Path, /, at_front=False):
     """Add a path to a list of paths."""
+    path = Path(path_str)
+    if debug:
+        print(f'Adding [{path}]{" at front" if at_front else ""}', file=sys.stderr)
     new_path = canon(path)
-    if new_path and new_path not in paths and os.path.realpath(new_path) not in paths:
+    if new_path and new_path not in paths and new_path.resolve() not in {p.resolve() for p in paths}:
         if at_front:
-            new_val = paths.appendleft(new_path)
+            paths.appendleft(new_path)
         else:
-            new_val = paths.append(new_path)
+            paths.append(new_path)
 
 
 def set_path():
     """Set up the PATH environment variable"""
-    paths = parse_path_variable('PATH')
+    paths = parse_path_variable('path_input')
+    home = Path(os.environ['HOME'])
 
     # "at front" section (note: add in reverse order you wish paths to appear in $PATH)
-    add_path(paths, '/usr/local/bin', at_front=True)
-    add_path(paths, '/opt/homebrew/bin', at_front=True)
-    add_path(paths, '/usr/local/opt/findutils/libexec/gnubin', at_front=True)
-    add_path(paths, os.path.join(os.environ['HOME'], 'Library/Python/3.7/bin'), at_front=True)
-    add_path(paths, os.path.join(os.environ['HOME'], '.local/bin'), at_front=True)
-    add_path(paths, os.path.join(os.environ['HOME'], 'IdeaProjects/stratus-aws/scripts'), at_front=True)
-    add_path(paths, os.path.join(os.environ['HOME'], 'bin/archind'), at_front=True)
-    add_path(paths, os.path.join(os.environ['HOME'], 'bin'), at_front=True)
-    add_path(paths, os.path.join(os.environ['HOME'], 'unix-environment/bin/archind'), at_front=True)
-    add_path(paths, os.path.join(os.environ['HOME'], 'unix-environment/bin/src/mine/build-default'), at_front=True)
-    add_path(paths, os.path.join(os.environ['HOME'], 'unix-environment/bin/src/mine/bazel-bin'), at_front=True)
+    add_path(paths, Path('/usr/local/bin'), at_front=True)
+    add_path(paths, Path('/opt/homebrew/bin'), at_front=True)
+    add_path(paths, home / '.local/bin', at_front=True)
+    add_path(paths, home / 'IdeaProjects/stratus-aws/scripts', at_front=True)
+    add_path(paths, home / 'bin/archind', at_front=True)
+    add_path(paths, home / 'bin', at_front=True)
+    add_path(paths, home / 'unix-environment/bin/archind', at_front=True)
+    add_path(paths, home / 'unix-environment/bin/src/mine/bazel-bin', at_front=True)
 
     # Other paths
-    add_path(paths, os.path.join(os.environ['HOME'], 'Library/Application Support/JetBrains/Toolbox/scripts'))
-    add_path(paths, os.path.join(os.environ['HOME'], 'dev/util/tis'))
-    add_path(paths, os.path.join(os.environ['HOME'], 'dev/util/bin'))
-    add_path(paths, os.path.join(os.environ['HOME'], 'dev/scripts'))
-    add_path(paths, os.path.join(os.environ['HOME'], 'dev/curlstuff'))
-    add_path(paths, os.path.join(os.environ['HOME'], '.pyenv/bin'))
-    add_path(paths, '/usr/local/sbin')
-    add_path(paths, '/Library/Frameworks/Python.framework/Versions/3.7/bin')
-    add_path(paths, '/usr/local/opt/tomcat@8/bin')
+    add_path(paths, home / 'Library/Application Support/JetBrains/Toolbox/scripts')
+    add_path(paths, home / 'dev/util/tis')
+    add_path(paths, Path('/usr/local/sbin'))
+    add_path(paths, Path('/Library/Frameworks/Python.framework/Versions/3.7/bin'))
+    add_path(paths, Path('/usr/local/opt/tomcat@8/bin'))
 
     # For Raspberry Pi
-    add_path(paths, '/usr/sbin')
-    add_path(paths, '/sbin')
-    add_path(paths, '/usr/local/games')
-    add_path(paths, '/usr/games')
+    add_path(paths, Path('/usr/sbin'))
+    add_path(paths, Path('/sbin'))
+    add_path(paths, Path('/usr/local/games'))
+    add_path(paths, Path('/usr/games'))
 
     set_path_from_list('PATH', paths)
 
 
 def set_pythonpath():
     """Set up the PYTHONPATH environment variable"""
-    paths = parse_path_variable('PYTHONPATH')
-    add_path(paths, os.path.join(os.environ['HOME'], 'dev/util'))
+    paths = parse_path_variable('ppath_input')
+    add_path(paths, Path(os.environ['HOME']) / 'dev/util')
     set_path_from_list('PYTHONPATH', paths)
 
 

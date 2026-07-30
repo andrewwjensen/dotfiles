@@ -1,0 +1,112 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+# --- PHASE 1: Install core runtimes first ---
+brew bundle --file=/dev/stdin <<EOF
+# Packages for both personal and work
+brew "age"
+brew "ascii"
+brew "awscli"
+brew "bazel"
+brew "boost"
+brew "bpytop"
+brew "btop"
+brew "buildifier"
+brew "chezmoi"
+brew "coreutils"
+brew "cppunit"
+brew "csview"
+brew "csvlens"
+brew "diffutils"
+brew "fd"
+brew "figlet"
+brew "findutils"
+brew "gawk"
+brew "gdbm"
+brew "git"
+brew "git-lfs"
+brew "gmp"
+brew "gnu-sed"
+brew "gnu-tar"
+brew "gnupg"
+brew "go"
+brew "gpgme"
+brew "graphviz"
+brew "grep"
+brew "highlight"
+brew "htop"
+brew "ispell"
+brew "jq"
+brew "lesspipe"
+brew "libxml2"
+brew "libyaml"
+brew "logrotate"
+brew "lynx"
+brew "moreutils", link: false
+brew "mprocs"
+brew "nano"
+brew "ncurses"
+brew "openconnect"
+brew "openssl@3"
+brew "p7zip"
+brew "parallel"
+brew "pcal"
+brew "pixi"
+brew "pkgconf"
+brew "popt"
+brew "powerlevel10k"
+brew "pyenv"
+brew "python@3.14"
+brew "r"
+brew "readline"
+brew "ripgrep"
+brew "shfmt"
+brew "skopeo"
+brew "source-highlight"
+brew "sponge"
+brew "sqlite"
+brew "telnet"
+brew "thefuck"
+brew "tmux"
+brew "tree"
+brew "uv"
+brew "vim"
+brew "watch"
+brew "wdiff"
+brew "wget"
+brew "xq"
+brew "xz"
+brew "yq"
+brew "zlib"
+brew "zsh"
+brew "zsh-completions"
+brew "zsh-syntax-highlighting"
+
+# For work
+{{ if .is_work }}
+brew "git-remote-codecommit"
+brew "gradle"
+brew "groovy"
+{{ end }}
+
+cask "kopiaui"
+EOF
+
+# --- PHASE 2: Inject Homebrew paths into this script execution context ---
+# This ensures the script's subshell natively sees the newly installed node binary
+if [ -d "/opt/homebrew/bin" ]; then
+    export PATH="/opt/homebrew/bin:/opt/homebrew/share/npm/bin:$PATH"
+elif [ -d "/usr/local/bin" ]; then
+    export PATH="/usr/local/bin:$PATH"
+fi
+
+# --- PHASE 3: Install packages dependent on node ---
+brew bundle --file=- <<EOF
+# Node packages
+npm "@aws-amplify/cli"
+npm "@aws-sdk/client-lambda"
+npm "aws-sdk"
+npm "diff-so-fancy"
+EOF
+
+{{- end -}}

@@ -138,7 +138,7 @@ alias psme='psa | grep -v grep | egrep "PID|${USER}"'
 alias s="sso devds-architect"
 alias sa="s; a"
 alias s2n="tr ' ' '\012' | egrep -v '^ *$'"
-alias setpaths='eval $(python3 ${HOME}/.setpaths.py)'
+alias setpaths='eval $(path_input=${PATH} ppath_input=${PYTHON_PATH} python3 ${HOME}/.setpaths.py)'
 alias trunc="expand | cut -c 1-\${COLUMNS}"
 alias urldecode='python -c "import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))"'
 alias urlencode='python -c "import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]))"'
@@ -315,15 +315,6 @@ function listening() {
   fi
 }
 
-function og() { # reverse spelling of "go"
-  current_branch=$(git branch --show-current)
-  if [[ ${current_branch} != "master" ]]; then
-    git checkout master
-    git pull -p
-    git branch -d "${current_branch}"
-  fi
-}
-
 function hdl() {
   hexdump -ve '/1 "%02x "' "$1" | sed -e 's/0a /\n/g'
 }
@@ -347,6 +338,26 @@ function lfcr() {
   tr '\012' '\015'
 }
 
+function lg() {
+    if [ -t 0 ]; then
+        # Interactive terminal (file argument provided)
+        pygmentize -g "$1" | less -XRF
+    else
+        # Piped input (stdin provided)
+        pygmentize -g | less -XRF
+    fi
+}
+
+function lj() {
+    if [ -t 0 ]; then
+        # Interactive terminal (file argument provided)
+        pygmentize -l json "$1" | less -XRF
+    else
+        # Piped input (stdin provided)
+        pygmentize -l json | less -XRF
+    fi
+}
+
 # make directory and change to it
 function mcd() {
   mkdir -p "$1"
@@ -356,6 +367,15 @@ function mcd() {
 # Remove LF from stdout
 function nolf() {
   tr -d '\012'
+}
+
+function og() { # reverse spelling of "go"
+  current_branch=$(git branch --show-current)
+  if [[ ${current_branch} != "master" ]]; then
+    git checkout master
+    git pull -p
+    git branch -d "${current_branch}"
+  fi
 }
 
 function sleep_until() {

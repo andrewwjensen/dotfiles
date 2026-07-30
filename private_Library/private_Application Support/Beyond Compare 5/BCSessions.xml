@@ -5,8 +5,97 @@
 		<Items>
 			<TSessionFolder>
 				<Items>
+					<TTextCompareSession Value="NotFoundComponent.tsx &lt;--> UnauthenticatedComponent.tsx">
+						<LastModified Value="2026-07-29 09:10:26"/>
+						<Rules>
+							<AlignKind Value="alignPatience"/>
+						</Rules>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/trane-cloud/src/shared/lib/auth/components/NotFoundComponent.tsx"/>
+							<Right Value="/Users/u203968/IdeaProjects/trane-cloud/src/shared/lib/auth/components/UnauthenticatedComponent.tsx"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="requirements_without_versions.txt &lt;--> requirements.txt">
+						<LastModified Value="2026-07-27 14:59:33"/>
+						<Rules>
+							<AlignKind Value="alignPatience"/>
+						</Rules>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/requirements_without_versions.txt"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/requirements.txt"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="index.js &lt;--> alter-claims.js">
+						<LastModified Value="2026-07-27 09:18:32"/>
+						<Rules>
+							<AlignKind Value="alignPatience"/>
+						</Rules>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend.amplify-push/amplify/backend/function/DenaliDigitalBackendPreTokenGeneration/src/index.js"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend.amplify-push/amplify/backend/function/DenaliDigitalBackendPreTokenGeneration/src/alter-claims.js"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="platform-user.test.js &lt;--> index.test.js">
+						<LastModified Value="2026-07-22 14:05:09"/>
+						<Rules>
+							<AlignKind Value="alignPatience"/>
+						</Rules>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/src/unit-tests/functions/MutateUserAccess/platform-user.test.js"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/src/unit-tests/functions/MutateUserAccess/index.test.js"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextMergeSession Value="python_tests.txt">
+						<LastModified Value="2026-07-20 15:31:31"/>
+						<Specs>
+							<Center Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/python_tests.txt"/>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/all_python_tests.txt"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/python_bad_tests.txt"/>
+						</Specs>
+					</TTextMergeSession>
+					<TTextCompareSession Value="all_python_tests.txt &lt;--> python_tests.txt">
+						<LastModified Value="2026-07-20 15:31:02"/>
+						<Rules>
+							<AlignKind Value="alignPatience"/>
+						</Rules>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/all_python_tests.txt"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/python_tests.txt"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="all_python_tests.txt &lt;--> python_bad_tests.txt">
+						<LastModified Value="2026-07-20 15:31:01"/>
+						<Rules>
+							<AlignKind Value="alignPatience"/>
+						</Rules>
+						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/all_python_tests.txt"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/python_bad_tests.txt"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
 					<TTextCompareSession Value="good &lt;--> bad">
-						<LastModified Value="2026-07-20 08:29:33"/>
+						<LastModified Value="2026-07-20 08:47:19"/>
+						<Rules>
+							<AlignKind Value="alignPatience"/>
+						</Rules>
 						<Specs>
 							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/good"/>
 							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/bad"/>
