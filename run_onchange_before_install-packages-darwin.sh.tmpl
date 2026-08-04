@@ -8,7 +8,7 @@ if ! command -v brew &> /dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-# --- PHASE 1: Install core runtimes first ---
+# Install Homebrew packages
 brew bundle --file=/dev/stdin <<EOF
 # Packages for both personal and work
 brew "age"
@@ -93,31 +93,9 @@ brew "zsh-syntax-highlighting"
 # For work
 {{ if .is_work }}
 brew "git-remote-codecommit"
-brew "gradle"
-brew "groovy"
-brew "node"
 {{ end }}
 
 cask "kopiaui"
 EOF
-
-# --- PHASE 2: Inject Homebrew paths into this script execution context ---
-# This ensures the script's subshell natively sees the newly installed node binary
-if [ -d "/opt/homebrew/bin" ]; then
-    export PATH="/opt/homebrew/bin:/opt/homebrew/share/npm/bin:$PATH"
-elif [ -d "/usr/local/bin" ]; then
-    export PATH="/usr/local/bin:$PATH"
-fi
-
-# --- PHASE 3: Install packages dependent on node ---
-{{ if .is_work }}
-brew bundle --file=- <<EOF
-# Node packages
-npm "@aws-amplify/cli"
-npm "@aws-sdk/client-lambda"
-npm "aws-sdk"
-npm "diff-so-fancy"
-EOF
-{{ end }}
 
 {{- end -}}
