@@ -25,7 +25,6 @@
 	ui = auto
 [core]
 	autocrlf = input
-	pager = diff-so-fancy | less --tabs=4 -RFX
 [pretty]
 	andy = "%C(auto)%h%d %an %C(cyan)%ad%C(reset) (%C(magenta)%ar%C(reset)) %s"
 [log]
