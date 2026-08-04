@@ -4,7 +4,14 @@
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 
-(use-package lua-mode)
+(use-package treesit-auto
+  :ensure t
+  :custom
+  (treesit-auto-install t)
+  :config
+  ;; Adding 'all ensures YAML, Lua, Python, etc. are all managed automatically
+  (treesit-auto-add-to-auto-mode-alist 'all)
+  (global-treesit-auto-mode))
 
 (require 'dired-x) ; load shortcut C-x C-j (dired-jump)
 (require 'nbc-mode)
@@ -12,9 +19,12 @@
 (require 'eldoc)
 (use-package graphviz-dot-mode
   :ensure t
-  :config
+  :mode ("\\.dot\\'" "\\.gv\\'")
+  :init
+  ;; Sets the output format for your layout previews
+  (setq graphviz-dot-preview-extension "png")
   (setq graphviz-dot-indent-width 4))
-(add-hook 'graphviz-dot-mode-hook 'company-mode)
+;;(add-hook 'graphviz-dot-mode-hook 'company-mode)
 
 (use-package embark-consult
   :ensure t
@@ -27,11 +37,6 @@
   :bind
   (("C-." . embark-act)         ;; Trigger actions from any prompt
    ("M-." . embark-dwim)))      ;; "Do What I Mean" contextual action
-
-;; Download yaml-mode.el from: https://github.com/yoshiki/yaml-mode
-(require 'yaml-mode)
-(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
-(add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode))
 
 ;; Allow editing of binary .plist files.
 (add-to-list 'jka-compr-compression-info-list
