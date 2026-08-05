@@ -5,6 +5,39 @@
 		<Items>
 			<TSessionFolder>
 				<Items>
+					<TTextCompareSession Value="a &lt;--> b">
+						<LastModified Value="2026-08-05 08:30:30"/>
+						<Rules>
+							<AlignKind Value="alignPatience"/>
+						</Rules>
+						<Specs>
+							<Left Value="/private/tmp/a"/>
+							<Right Value="/private/tmp/b"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
+					<TTableCompareSession Value="consumption_custom.csv &lt;--> consumption_custom2.csv">
+						<LastModified Value="2026-08-05 08:30:27"/>
+						<Specs>
+							<Left Value="/private/tmp/consumption_custom.csv"/>
+							<Right Value="/private/tmp/consumption_custom2.csv"/>
+						</Specs>
+					</TTableCompareSession>
+					<TTextCompareSession Value="a &lt;--> b">
+						<LastModified Value="2026-08-04 16:38:07"/>
+						<Rules>
+							<AlignKind Value="alignPatience"/>
+						</Rules>
+						<Specs>
+							<Left Value="/tmp/a"/>
+							<Right Value="/tmp/b"/>
+						</Specs>
+						<State>
+							<InsigIgnored Value="True"/>
+						</State>
+					</TTextCompareSession>
 					<TTextCompareSession Value="NotFoundComponent.tsx &lt;--> UnauthenticatedComponent.tsx">
 						<LastModified Value="2026-07-29 09:10:26"/>
 						<Rules>
@@ -239,19 +272,19 @@
 					<TTextCompareSession Value="dynamo_client.js &lt;--> dynamo_client_orig_optimized.js">
 						<LastModified Value="2026-07-14 22:08:01"/>
 						<Specs>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client.js"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client_orig_optimized.js"/>
+						</Specs>
+					</TTextCompareSession>
+					<TTextCompareSession Value="dynamo_client.js &lt;--> dynamo_client_orig_optimized.js">
+						<LastModified Value="2026-07-14 22:08:01"/>
+						<Specs>
 							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend.amplify-push/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client.js"/>
 							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client_orig_optimized.js"/>
 						</Specs>
 						<State>
 							<InsigIgnored Value="True"/>
 						</State>
-					</TTextCompareSession>
-					<TTextCompareSession Value="dynamo_client.js &lt;--> dynamo_client_orig_optimized.js">
-						<LastModified Value="2026-07-14 22:08:01"/>
-						<Specs>
-							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client.js"/>
-							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/amplify/backend/function/SecurityFrameworkSessionGenerator/src/dynamo_client_orig_optimized.js"/>
-						</Specs>
 					</TTextCompareSession>
 					<TTextCompareSession Value="dynamo_client.js &lt;--> dynamo_client_query.js">
 						<LastModified Value="2026-07-14 22:08:01"/>
@@ -402,8 +435,8 @@
 					<TTextCompareSession Value="result7-listCustomUserAccessByUser.json">
 						<LastModified Value="2026-07-14 22:08:01"/>
 						<Specs>
-							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/results9/ddb/result7-listCustomUserAccessByUser.json"/>
-							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/results9/new/result7-listCustomUserAccessByUser.json"/>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/results9/new/result7-listCustomUserAccessByUser.json"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/results9/orig/result7-listCustomUserAccessByUser.json"/>
 						</Specs>
 						<State>
 							<InsigIgnored Value="True"/>
@@ -412,8 +445,8 @@
 					<TTextCompareSession Value="result7-listCustomUserAccessByUser.json">
 						<LastModified Value="2026-07-14 22:08:01"/>
 						<Specs>
-							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/results9/new/result7-listCustomUserAccessByUser.json"/>
-							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/results9/orig/result7-listCustomUserAccessByUser.json"/>
+							<Left Value="/Users/u203968/IdeaProjects/denali-digital-backend/results9/ddb/result7-listCustomUserAccessByUser.json"/>
+							<Right Value="/Users/u203968/IdeaProjects/denali-digital-backend/results9/new/result7-listCustomUserAccessByUser.json"/>
 						</Specs>
 						<State>
 							<InsigIgnored Value="True"/>

@@ -1,4 +1,3 @@
-(setq debug-on-message "Package cl is deprecated")
 (require 'package)
 (add-to-list 'package-archives
          '("melpa" . "http://melpa.org/packages/") t)
@@ -120,7 +119,7 @@
  '(mouse-yank-at-point t)
  '(ns-command-modifier 'meta)
  '(package-selected-packages
-   '(company embark-consult graphviz-dot-mode helm lua-mode marginalia orderless treesit-auto
+   '(company consult embark embark-consult graphviz-dot-mode lua-mode marginalia orderless
              undo-tree vertico))
  '(printer-name "Brother_MFC_L8850CDW")
  '(projectile-enable-caching nil)

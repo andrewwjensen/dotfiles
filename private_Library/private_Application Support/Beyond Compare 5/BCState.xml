@@ -17,8 +17,8 @@
 		</FormPositions>
 	</TBcState>
 	<TCheckForUpdatesState>
-		<Build Value="32425"/>
-		<LastChecked Value="2026-07-22 11:52:15"/>
+		<Build Value="32528"/>
+		<LastChecked Value="2026-08-04 16:36:47"/>
 	</TCheckForUpdatesState>
 	<TDirCompareState>
 		<LeftMRUSpecs>
@@ -50,31 +50,42 @@
 	<TImportState>
 		<MRUFilename Value="/Users/u203968/Documents/BCSettings.bcpkg"/>
 	</TImportState>
-	<TTextCompareState>
+	<TTableCompareState>
 		<LeftMRUSpecs>
-			<_0 Value="/Users/u203968/IdeaProjects/trane-cloud/src/shared/lib/auth/components/NotFoundComponent.tsx"/>
-			<_1 Value="/private/var/folders/lz/fk600_y15fd3k34r6ll93v1m0000gp/T/git-difftool.7w5LFg/left/amplify/backend/function/CreateNewUser/CreateNewUser-cloudformation-template.json"/>
-			<_2 Value="/Users/u203968/IdeaProjects/denali-digital-backend/requirements_without_versions.txt"/>
-			<_3 Value="/Users/u203968/IdeaProjects/denali-digital-backend.amplify-push/amplify/backend/function/DenaliDigitalBackendPreTokenGeneration/src/index.js"/>
-			<_4 Value="/Users/u203968/IdeaProjects/denali-digital-backend/src/unit-tests/functions/MutateUserAccess/platform-user.test.js"/>
-			<_5 Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/all_python_tests.txt"/>
-			<_6 Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/good"/>
-			<_7 Value="/Users/u203968/Downloads/tools_zendesk.py"/>
-			<_8 Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/session1.json"/>
+			<_0 Value="/private/tmp/consumption_custom.csv"/>
 		</LeftMRUSpecs>
 		<MRUFonts>
 			<_0 Value="default;12;;;F"/>
 		</MRUFonts>
 		<RightMRUSpecs>
-			<_0 Value="/Users/u203968/IdeaProjects/trane-cloud/src/shared/lib/auth/components/UnauthenticatedComponent.tsx"/>
-			<_1 Value="/private/var/folders/lz/fk600_y15fd3k34r6ll93v1m0000gp/T/git-difftool.7w5LFg/right/amplify/backend/function/CreateNewUser/CreateNewUser-cloudformation-template.json"/>
-			<_2 Value="/Users/u203968/IdeaProjects/denali-digital-backend/requirements.txt"/>
-			<_3 Value="/Users/u203968/IdeaProjects/denali-digital-backend.amplify-push/amplify/backend/function/DenaliDigitalBackendPreTokenGeneration/src/alter-claims.js"/>
-			<_4 Value="/Users/u203968/IdeaProjects/denali-digital-backend/src/unit-tests/functions/MutateUserAccess/index.test.js"/>
-			<_5 Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/python_bad_tests.txt"/>
-			<_6 Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/python_tests.txt"/>
-			<_7 Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/bad"/>
-			<_8 Value="/Users/u203968/IdeaProjects/denali-ai-assistant-cdk/mcp_server/tools_zendesk.py"/>
+			<_0 Value="/private/tmp/consumption_custom2.csv"/>
+		</RightMRUSpecs>
+	</TTableCompareState>
+	<TTextCompareState>
+		<LeftMRUSpecs>
+			<_0 Value="/private/tmp/a"/>
+			<_1 Value="/Users/u203968/IdeaProjects/trane-cloud/src/shared/lib/auth/components/NotFoundComponent.tsx"/>
+			<_2 Value="/private/var/folders/lz/fk600_y15fd3k34r6ll93v1m0000gp/T/git-difftool.7w5LFg/left/amplify/backend/function/CreateNewUser/CreateNewUser-cloudformation-template.json"/>
+			<_3 Value="/Users/u203968/IdeaProjects/denali-digital-backend/requirements_without_versions.txt"/>
+			<_4 Value="/Users/u203968/IdeaProjects/denali-digital-backend.amplify-push/amplify/backend/function/DenaliDigitalBackendPreTokenGeneration/src/index.js"/>
+			<_5 Value="/Users/u203968/IdeaProjects/denali-digital-backend/src/unit-tests/functions/MutateUserAccess/platform-user.test.js"/>
+			<_6 Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/all_python_tests.txt"/>
+			<_7 Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/good"/>
+			<_8 Value="/Users/u203968/Downloads/tools_zendesk.py"/>
+		</LeftMRUSpecs>
+		<MRUFonts>
+			<_0 Value="default;12;;;F"/>
+		</MRUFonts>
+		<RightMRUSpecs>
+			<_0 Value="/private/tmp/b"/>
+			<_1 Value="/Users/u203968/IdeaProjects/trane-cloud/src/shared/lib/auth/components/UnauthenticatedComponent.tsx"/>
+			<_2 Value="/private/var/folders/lz/fk600_y15fd3k34r6ll93v1m0000gp/T/git-difftool.7w5LFg/right/amplify/backend/function/CreateNewUser/CreateNewUser-cloudformation-template.json"/>
+			<_3 Value="/Users/u203968/IdeaProjects/denali-digital-backend/requirements.txt"/>
+			<_4 Value="/Users/u203968/IdeaProjects/denali-digital-backend.amplify-push/amplify/backend/function/DenaliDigitalBackendPreTokenGeneration/src/alter-claims.js"/>
+			<_5 Value="/Users/u203968/IdeaProjects/denali-digital-backend/src/unit-tests/functions/MutateUserAccess/index.test.js"/>
+			<_6 Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/python_bad_tests.txt"/>
+			<_7 Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/python_tests.txt"/>
+			<_8 Value="/Users/u203968/IdeaProjects/denali-digital-backend/tmp/bad"/>
 		</RightMRUSpecs>
 		<ShowItemNum Value="True"/>
 	</TTextCompareState>

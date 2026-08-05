@@ -19,7 +19,7 @@ Host ck.thejensenfam.com
 
 Host *.thejensenfam.com
     User ajensen
-    ForwardX11 yes
+    ForwardAgent yes
     ProxyCommand /opt/homebrew/bin/cloudflared access ssh --hostname %h
 
 Host jensennas1.local
