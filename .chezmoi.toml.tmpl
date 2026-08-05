@@ -9,3 +9,6 @@ encryption = "age"
 [hooks.read-source-state.pre]
     command = "bash"
     args = [".local/share/chezmoi/.decrypt-age-key.sh"]
+
+[diff]
+    pager = "delta"

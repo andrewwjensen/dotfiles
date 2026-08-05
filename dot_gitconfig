@@ -1,6 +1,6 @@
 [diff]
-	tool = bc3
-	guitool = bc3
+	tool = bc
+	guitool = bc
 	algorithm = patience
 [difftool]
 	prompt = false
@@ -13,11 +13,12 @@
 	helper = cache
 #	helper = gnome-keyring
 [merge]
-	tool = bc3
+	tool = bc
+    conflictStyle = zdiff3
 [mergetool]
 	prompt = false
 [alias]
-	bc = difftool --tool=bc3 --dir-diff
+	bc = difftool --tool=bc --dir-diff
 	mt = mergetool
 	st = status -s
 	exec = "!exec "
@@ -25,6 +26,14 @@
 	ui = auto
 [core]
 	autocrlf = input
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true     # use n and N to move between files
+    side-by-side = true # enable side-by-side view
+    line-numbers = true
+    grep-file-style = bold purple
 [pretty]
 	andy = "%C(auto)%h%d %an %C(cyan)%ad%C(reset) (%C(magenta)%ar%C(reset)) %s"
 [log]
@@ -36,9 +45,9 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[difftool "bc3"]
+[difftool "bc"]
 	trustExitCode = true
-[mergetool "bc3"]
+[mergetool "bc"]
 	trustExitCode = true
 [init]
 	defaultBranch = main

@@ -378,6 +378,17 @@ function og() { # reverse spelling of "go"
   fi
 }
 
+# Override rg with Delta formatting for interactive use
+rg() {
+    if [ -t 1 ]; then
+        # Output is a terminal, use JSON and Delta
+        command rg --json "$@" | delta
+    else
+        # Output is a pipe/file, run standard ripgrep
+        command rg "$@"
+    fi
+}
+
 function sleep_until() {
   seconds=$(($(date -d "$*" +%s) - $(date +%s)))
   if [[ $seconds -lt 0 && $seconds -gt -86400 ]]; then
