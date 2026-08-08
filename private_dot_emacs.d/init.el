@@ -43,17 +43,28 @@
 ;; 1. Enable Vertico vertical completion UI
 (use-package vertico
   :ensure t
+  :bind(
+        :map minibuffer-local-map
+        ("C-w" . backward-kill-word))
   :init
   (vertico-mode)
   :custom
   (vertico-cycle t) ;; Cycle back to the top when reaching the bottom
 )
+;; Configure the vertico-directory extension
+(use-package vertico-directory
+  :after vertico
+  :ensure nil ; Built-in extension inside the vertico package
+  :bind (:map vertico-map
+              ("C-l" . vertico-directory-up)))
 
 ;; 2. Add rich annotations to the completion buffer
 (use-package marginalia
   :ensure t
   :bind (:map minibuffer-local-map
-         ("M-A" . marginalia-cycle)) ; Toggle detailed/slim view
+              ("M-A" . marginalia-cycle)) ; Toggle detailed/slim view
+  :custom
+  (marginalia-align 'right)
   :init
   (marginalia-mode))
 
@@ -77,10 +88,36 @@
          ("C-x b" . consult-buffer)     ; Enhanced buffer switcher
          ("C-x C-b" . consult-buffer)
          ("M-y" . consult-yank-pop)     ; Visual kill-ring history
-         ("M-s g" . consult-ripgrep)  ; 'g' for grep/ripgrep
+         ("M-s d" . consult-find)       ; Find files by name
+         ("M-s g" . consult-ripgrep)    ; 'g' for grep/ripgrep
          ;; Drop-in replacements for Helm-swoop / Helm-imenu
          ("M-s l" . consult-line)       ; Search lines in current buffer
          ("M-s i" . consult-imenu)))    ; Navigate code structures/headings
+
+;; 6. Embark
+(use-package embark
+  :ensure t
+  :bind
+  (("C-." . embark-act)         ;; Contextually act on text at point or minibuffer item
+   ("M-." . embark-dwim)        ;; Smart do-what-I-mean default command
+   ("C-h B" . embark-bindings)) ;; Substitute for specific key-binding discovery
+
+  :init
+  ;; Replace the standard prefix help with a searchable Embark interface
+  (setq prefix-help-command #'embark-prefix-help-command)
+
+  :config
+  ;; Hide the minibuffer during action selection
+  (add-to-list 'display-buffer-alist
+               '("\\*Embark Actions\\*"
+                 (display-buffer-below-selected)
+                 (window-height . fit-window-to-buffer))))
+
+;; 7. EMBARK-CONSULT: Integration bridge between Embark and Consult
+(use-package embark-consult
+  :ensure t
+  :hook
+  (embark-collect-mode . consult-preview-at-point-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
