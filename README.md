@@ -53,3 +53,22 @@ Manual steps required after initializing a system with chezmoi.
    git clone https://bitbucket.org/andrewwjensen/unix-environment.git
    (cd ~/unix-environment/bin/src/mine; bazel build --verbose_failures :all) && d
    ```
+
+7. If setting up Kopia backups, my typical file exclusion list is:
+   ```
+   .cache
+   .DS_Store
+   .Trash
+   Downloads
+   Library/Application Support/CloudDocs
+   Library/Application Support/FileProvider
+   Library/Application Support/LogiOptionsPlus
+   Library/Caches
+   Library/Containers
+   Library/Daemon Containers
+   Library/DuetExpertCenter
+   Library/Group Containers
+   Library/Logs
+   Library/Mail/V10/MailData/recentSearches.plist
+   Library/Metadata/CoreSpotlight
+   ```
