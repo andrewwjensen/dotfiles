@@ -117,6 +117,7 @@ alias cr2n=crlf
 alias cln='/bin/rm -f *~(.ND)' # set NULL_GLOB and GLOB_DOTS for this pattern
 alias cz="chezmoi"
 alias cza="chezmoi apply"
+alias czc="cd $(chezmoi source-path)"
 alias cze="chezmoi edit"
 alias czd="chezmoi diff"
 alias czu="chezmoi update"
