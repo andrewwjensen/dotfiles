@@ -156,8 +156,8 @@
  '(mouse-yank-at-point t)
  '(ns-command-modifier 'meta)
  '(package-selected-packages
-   '(company consult embark embark-consult graphviz-dot-mode lua-mode marginalia orderless
-             undo-tree vertico))
+   '(company consult corfu embark embark-consult graphviz-dot-mode lua-mode marginalia
+             orderless undo-tree vertico))
  '(printer-name "Brother_MFC_L8850CDW")
  '(projectile-enable-caching nil)
  '(safe-local-variable-values

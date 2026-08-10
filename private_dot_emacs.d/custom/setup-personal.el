@@ -4,10 +4,18 @@
 
 (use-package treesit-auto
   :ensure t
-  :custom
-  (treesit-auto-install 'prompt)
   :config
   (global-treesit-auto-mode))
+;; Additional file types that need explicit mappings for treesit to auto detect them
+(add-to-list 'auto-mode-alist '("\\.toml\\'" . toml-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-ts-mode))
+(use-package markdown-mode
+  :ensure t
+  :mode ("\\.md\\'" . markdown-mode)
+  :config
+  ;; Enable tree-sitter syntax highlighting inside markdown-mode
+  (setq markdown-ts-mode t))
+
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 
@@ -33,6 +41,29 @@
   :bind
   (("C-." . embark-act)         ;; Trigger actions from any prompt
    ("M-." . embark-dwim)))      ;; "Do What I Mean" contextual action
+
+;; Eglot for IDE-like functionality. For C++, clangd needs to know how the code
+;; compiles ;; to find definitions accurately. Ensure the build system outputs
+;; a file named compile_commands.json into the project's root directory. For CMake,
+;; generate this instantly by adding:
+;;    -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+;; to the configuration command.
+(use-package eglot
+  :ensure nil ;; Built-in in Emacs 29+
+  :hook ((c-mode . eglot-ensure)
+         (c++-mode . eglot-ensure)
+         (c-ts-mode . eglot-ensure)
+         (c++-ts-mode . eglot-ensure))
+  :config
+  ;; Optional: Optimize eglot update frequencies
+  (setq eglot-events-buffer-size 0) ;; Speeds up execution by disabling internal logging
+)
+
+;; Pair eglot with corfu for fast, modern completion overlays
+(use-package corfu
+  :ensure t
+  :init
+  (global-corfu-mode))
 
 ;; Allow editing of binary .plist files.
 (add-to-list 'jka-compr-compression-info-list
