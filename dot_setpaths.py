@@ -20,7 +20,8 @@ def canon(directory: Path) -> Path | None:
 
 def debug_path(msg, path):
     if debug:
-        print(f'{msg}:\n  {"\n  ".join(map(str, path))}', file=sys.stderr)
+        sep = "\n  "
+        print(f'{msg}:\n  {sep.join(map(str, path))}', file=sys.stderr)
 
 
 def parse_path_variable(var_name) -> deque[Path]:
