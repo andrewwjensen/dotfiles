@@ -42,6 +42,24 @@
   (("C-." . embark-act)         ;; Trigger actions from any prompt
    ("M-." . embark-dwim)))      ;; "Do What I Mean" contextual action
 
+(defun my-embark-kill-buffer-no-prompt (buf)
+  "Kill BUF immediately without asking for confirmation."
+  (interactive "bKill buffer: ")
+  ;; Use the core function instead of the interactive command
+  (kill-buffer buf))
+
+(with-eval-after-load 'embark
+  ;; 1. Remap the 'k' key for buffer targets
+  (keymap-set embark-buffer-map "k" #'my-embark-kill-buffer-no-prompt)
+
+  ;; 2. Convert embark-quit-after-action into an alist to disable quitting for this function
+  (setq embark-quit-after-action '((my-embark-kill-buffer-no-prompt . nil)
+                                   (t . t)))
+  
+  ;; 3. Prevent Vertico from jumping back up to the top candidate
+  (setf (alist-get 'my-embark-kill-buffer-no-prompt embark-pre-action-hooks) nil)
+  (setf (alist-get 'my-embark-kill-buffer-no-prompt embark-post-action-hooks) nil))
+
 ;; Eglot for IDE-like functionality. For C++, clangd needs to know how the code
 ;; compiles ;; to find definitions accurately. Ensure the build system outputs
 ;; a file named compile_commands.json into the project's root directory. For CMake,
@@ -111,6 +129,7 @@
 (global-set-key [(control x) (control meta f)] 'find-file)
 (global-set-key [(control x) (control k)] 'kill-region)
 (global-set-key [(control x) ?\\] 'my-backslash-region)
+(global-set-key [(control x) (control b)] 'ibuffer)
 (global-set-key [(control x) ?c] 'toggle-case-fold-search)
 (global-set-key [(control x) ?l] 'goto-line)
 (global-set-key [(control x) ?m] kmacro-keymap)
