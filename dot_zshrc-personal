@@ -304,12 +304,18 @@ function crlf() {
   tr '\015' '\012'
 }
 
+function diff() {
+  command diff -u "$@" | delta
+}
+
 function gbc() {
-  git bc "${1}^" "${1}"
+  # Given a git commit hash (default=HEAD), show the diff of that commit in Beyond Compare
+  git bc "${1:-HEAD}^" "${1:-HEAD}"
 }
 
 function gdiff() {
-  git diff "${1}^" "${1}"
+  # Given a git commit hash (default=HEAD), show the diff of that commit
+  git diff "${1:-HEAD}^" "${1:-HEAD}"
 }
 
 function listening() {
