@@ -100,6 +100,7 @@ fi
 case $(uname -s) in
 Darwin)
   ls_opts="-eGOT"
+  # shellcheck disable=SC2139
   alias lll="/bin/ls ${ls_opts} -@AFhl"
   ;;
 *) ls_opts="--color" ;;
@@ -108,29 +109,33 @@ esac
 alias ag='ag --hidden' # --hidden to search dot-files
 alias agt='ag --hidden --ignore=test --ignore=itest --ignore=tests'
 alias bc='bc ~/include/bc/functions.bc'
-alias cdf='cd ~/Documents/Games/"Forge of Empires"'
+alias cdc='cd ~/.local/share/chezmoi'
+alias cds='cd ~/IdeaProjects/stratus-aws'
 alias cdu='cd ~/unix-environment'
 alias cdw='cd ~/IdeaProjects/denali-digital-backend/'
-alias cdp='cd ~/.local/share/posting/default'
 alias c2n="tr : '\012'"
 alias cr2n=crlf
 alias cln='/bin/rm -f *~(.ND)' # set NULL_GLOB and GLOB_DOTS for this pattern
 alias cz="chezmoi"
 alias cza="chezmoi apply"
-alias czc="cd $(chezmoi source-path)"
+alias czc='cd $(chezmoi source-path)'
 alias cze="chezmoi edit"
 alias czd="chezmoi diff"
 alias czu="chezmoi update"
 alias dirs='dirs -p'
 alias h='fc -lfD -100'
 alias hd='hexdump -C'
+# shellcheck disable=SC2139
 alias ll="ls ${ls_opts} -AFhl"
+# shellcheck disable=SC2139
 alias ls="ls ${ls_opts} -F"
+# shellcheck disable=SC2139
 alias lsa="ls ${ls_opts} -AFs"
 alias lla="ls --color -AFhl"
 alias mpage='mpage -m9lt10r41b'
 alias mq='hg -R $(hg root --mq)'
 alias mymod='chmod 700'
+alias p='read "?Press [Enter] to continue..."; echo ${REPLY}'
 alias pd='pushd'
 alias pdd='pushd +0'
 alias pdiff='git diff --no-index --patience'
@@ -229,7 +234,7 @@ setopt ZLE             # use zsh line editor
 
 # For powerlevel10k prompt element "aws_profile" displaying the current AWS profile
 function prompt_aws_profile() {
-  p10k segment -b 5 -f 7 -e -t '${AWS_PROFILE}'
+  p10k segment -b 5 -f 7 -e -t "${AWS_PROFILE}"
 }
 
 function prompt_shell_level() {
