@@ -3,6 +3,7 @@
 <BCPreferences Version="2" MinVersion="2">
 	<TBcPrefs>
 		<BackupDir Value="/Users/u203968/.backups/BC"/>
+		<BackupKind Value="bkCopyToDir"/>
 		<BackupOnSave Value="True"/>
 		<FileCheckForChangesAutoReload Value="True"/>
 		<NextDiffAfterCopy Value="True"/>
