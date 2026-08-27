@@ -245,17 +245,14 @@ function prompt_shell_level() {
 }
 
 function sso() {
-  # We assume the KUBECONFIG filename is the same as the AWS profile name
   unset AWS_ACCESS_KEY_ID
   unset AWS_SECRET_ACCESS_KEY
   unset AWS_SESSION_TOKEN
   unset AWS_SECURITY_TOKEN
   unset AWS_CREDENTIAL_EXPIRATION
-  unset SAML2AWS_PROFILE
   if [ -z "${1}" ]; then
     unset AWS_PROFILE
     unset AWS_DEFAULT_PROFILE
-    unset KUBECONFIG
     return
   fi
 
@@ -266,15 +263,6 @@ function sso() {
   else
     echo "Token refresh failed. Logging in again..."
     aws sso login
-  fi
-
-  # Set KUBECONFIG if needed
-  export KUBECONFIG="${HOME}/.kube/${AWS_PROFILE}"
-  if [ -r "${KUBECONFIG}" ]; then
-    local cluster=primary
-    aws eks --region us-east-1 update-kubeconfig --name ${cluster} --kubeconfig="${KUBECONFIG}"
-  else
-    unset KUBECONFIG
   fi
 }
 
@@ -463,6 +451,9 @@ for fn in "${sources[@]}"; do
     source "${fn}"
   fi
 done
+
+typeset -U fpath
+fpath=("${HOME}/include/zsh" "${fpath}")
 
 # Add autocompletion for kubectl
 command kubectl >/dev/null 2>&1 && source <(kubectl completion zsh)
