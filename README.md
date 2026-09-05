@@ -56,6 +56,7 @@ Manual steps required after initializing a system with chezmoi.
 
 7. If setting up Kopia backups, my typical file exclusion list is:
    ```
+   # Smooth Mac Backups Exclusion List
    .cache
    .DS_Store
    .Trash
@@ -63,6 +64,7 @@ Manual steps required after initializing a system with chezmoi.
    Library/Application Support/CloudDocs
    Library/Application Support/FileProvider
    Library/Application Support/LogiOptionsPlus
+   Library/Biome/streams/restricted
    Library/Caches
    Library/Containers
    Library/Daemon Containers

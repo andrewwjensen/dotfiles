@@ -6,11 +6,11 @@ Host cloudkey
     HostName 192.168.1.8
     # pw: barr-...
 
-Host jensen-mac-pro.local
+Host andys-mac-mini.local. andys-mac-mini.local
     User ajensen
     ForwardX11 yes
 
-Host mac-V490XQ.local
+Host andys-m5.local. andys-m5.local
     User u203968
     ForwardX11 yes
 
