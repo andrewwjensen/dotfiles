@@ -1,7 +1,10 @@
-{{- if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
+# chezmoi:template:left-delimiter=#{{
+# chezmoi:template:right-delimiter=}}
 
 set -euo pipefail
+
+#{{- if eq .chezmoi.os "darwin" }}
 
 # Install Homebrew if missing so this script is self-contained.
 if ! command -v brew &> /dev/null; then
@@ -92,11 +95,17 @@ brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 
 # For work
-{{ if .is_work }}
+#{{ if .is_work }}
 brew "git-remote-codecommit"
-{{ end }}
-
+#{{ else }}
 cask "kopiaui"
+#{{ end }}
+
 EOF
 
-{{- end -}}
+# Bootstrap Oh My Zsh when missing, but don't launch a shell or replace ~/.zshrc.
+if [ ! -d "${HOME}/.oh-my-zsh" ]; then
+    RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
+#{{- end -}}

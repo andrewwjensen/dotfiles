@@ -1,5 +1,41 @@
-{{ if eq .chezmoi.os "linux" -}}
 #!/bin/bash
-sudo apt install ripgrep
+# chezmoi:template:left-delimiter=#{{
+# chezmoi:template:right-delimiter=}}
 
-{{- end -}}
+set -euo pipefail
+
+#{{- if eq .chezmoi.os "linux" }}
+
+sudo apt update
+sudo apt install -y curl git ripgrep zsh
+
+font_dir="$HOME/.local/share/fonts"
+
+#{{- else if eq .chezmoi.os "darwin" }}
+
+font_dir="$HOME/Library/Fonts"
+
+#{{- end }}
+
+# Bootstrap Oh My Zsh when missing, but don't launch a shell or replace ~/.zshrc.
+if [ ! -d "${HOME}/.oh-my-zsh" ]; then
+  RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
+# Install MesloLGS NF fonts for Powerlevel10k.
+mkdir -p "${font_dir}"
+font_base_url="https://github.com/romkatv/powerlevel10k-media/raw/master"
+for font in "MesloLGS NF Regular.ttf" \
+  "MesloLGS NF Bold.ttf" \
+  "MesloLGS NF Italic.ttf" \
+  "MesloLGS NF Bold Italic.ttf"; do
+  dest="${font_dir}/${font}"
+  if [[ ! -f ${dest} ]]; then
+    echo "Downloading font \"${font}\" into ${font_dir}"
+    font_urlencoded="${font// /%20}"
+    curl -Lo "${dest}" "${font_base_url}/${font_urlencoded}"
+  fi
+done
+
+# TODO: install DejaVu fonts, which one can download like this:
+# curl -OL http://sourceforge.net/projects/dejavu/files/dejavu/2.37/dejavu-fonts-ttf-2.37.tar.bz2

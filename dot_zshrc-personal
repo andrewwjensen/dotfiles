@@ -452,9 +452,6 @@ for fn in "${sources[@]}"; do
   fi
 done
 
-typeset -U fpath
-fpath=("${HOME}/include/zsh" "${fpath}")
-
 # Add autocompletion for kubectl
 command kubectl >/dev/null 2>&1 && source <(kubectl completion zsh)
 
@@ -469,4 +466,4 @@ fi
 
 setpaths
 
-test -e "${HOME}/dev/util/venv/bin/activate" && source "${HOME}/dev/util/venv/bin/activate"
+source "$(brew --prefix)"/share/powerlevel10k/powerlevel10k.zsh-theme
