@@ -17,6 +17,7 @@ brew bundle --file=/dev/stdin <<EOF
 brew "age"
 brew "ascii"
 brew "awscli"
+brew "bat"
 brew "bazel"
 brew "boost"
 brew "bpytop"
@@ -94,11 +95,14 @@ brew "zsh"
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 
-# For work
 #{{ if .is_work }}
+# For work only
 brew "git-remote-codecommit"
+
 #{{ else }}
+# For personal only
 cask "kopiaui"
+
 #{{ end }}
 
 EOF
