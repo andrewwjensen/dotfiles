@@ -100,7 +100,7 @@ def main():
         # bogus so we don't get an unwanted entry for /bin
         os.environ['HOME'] = '/InVaLiD:dIrEcToRy'
     set_path()
-    set_pythonpath()
+    #set_pythonpath()
     return 0
 
 

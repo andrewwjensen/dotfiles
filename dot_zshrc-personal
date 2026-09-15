@@ -175,8 +175,10 @@ autoload -U is-at-least
 is-at-least 4.3.9 && bindkey "\C-r" history-incremental-pattern-search-backward
 is-at-least 4.3.9 && bindkey "\C-s" history-incremental-pattern-search-forward
 
-# Override oh-my-zsh default for ESC-l of "ls^J"
-bindkey "^[l" down-case-word
+# Override oh-my-zsh defaults
+bindkey "\el" down-case-word
+bindkey '\eb' backward-word
+bindkey '\ef' forward-word
 
 #bindkey "\0177" backward-delete-char
 
