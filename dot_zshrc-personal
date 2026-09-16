@@ -186,48 +186,47 @@ bindkey '\ef' forward-word
 # For a complete description of the following, see zshoptions(1)
 # Comments apply to setopt, so invert meaning for unsetopt
 ################################################################
-# setopt AUTONAMEDIRS     # see zshoptions(1)
-# setopt allExport        # automatically export any variable set in the shell
-setopt alwaysLastPrompt              # see zshoptions(1)
-setopt alwaysToEnd                   # see zshoptions(1)
-setopt appendHistory                 # append history to history file rather than overwrite
-unsetopt autoList                    # automatically list chices on ambiguous completion
-unsetopt autoMenu                    # automatically use menu completion on repeated TABS
-setopt autoParamKeys                 # see zshoptions(1)
-setopt autoParamSlash                # add slash after directory names in completion
-unsetopt autoRemoveSlash             # remove trailing completed slashes
-unsetopt cd_ableVars                 # allow cd to path in a variable w/o using '$'
-setopt completeInWord                # allow tab completion in the middle of a word
-setopt correct                       # correct spelling of commands
-setopt extendedGlob                  # use # ~ and ^ for filename generation
-setopt extendedHistory               # save timestamp and elapsed time with each history entry
-setopt hashCmds                      # put location of cmd in hash table after first use
-setopt hashDirs                      # hash entire contents of bin directories
-setopt hashListAll                   # see zshoptions(1)
-setopt histExpireDupsFirst           # remove duplicate history items before older unique ones
-setopt histFindNoDups                # don't show duplicate lines when repeatedly searching
-setopt histIgnoreDups                # don't put two consecutive identical cmd in history
-setopt histIgnoreSpace               # don't put cmd in history if it starts with a space
-setopt histNoStore                   # don't put history cmds in history
-unsetopt histReduceBlanks            # a zsh 5.0.2 bug removes too much with this option set
-setopt incAppendHistoryTime          # append to history file right after command completes, not at exit
+setopt alwaysLastPrompt     # see zshoptions(1)
+setopt alwaysToEnd          # see zshoptions(1)
+setopt appendHistory        # append history to history file rather than overwrite
+unsetopt autoList           # automatically list chices on ambiguous completion
+unsetopt autoMenu           # automatically use menu completion on repeated TABS
+setopt autoParamKeys        # see zshoptions(1)
+setopt autoParamSlash       # add slash after directory names in completion
+unsetopt autoRemoveSlash    # remove trailing completed slashes
+unsetopt cd_ableVars        # allow cd to path in a variable w/o using '$'
+setopt completeInWord       # allow tab completion in the middle of a word
+setopt correct              # correct spelling of commands
+setopt extendedGlob         # use # ~ and ^ for filename generation
+setopt extendedHistory      # save timestamp and elapsed time with each history entry
+setopt hashCmds             # put location of cmd in hash table after first use
+setopt hashDirs             # hash entire contents of bin directories
+setopt hashListAll          # see zshoptions(1)
+setopt histExpireDupsFirst  # remove duplicate history items before older unique ones
+setopt histFindNoDups       # don't show duplicate lines when repeatedly searching
+setopt histIgnoreDups       # don't put two consecutive identical cmd in history
+setopt histIgnoreSpace      # don't put cmd in history if it starts with a space
+setopt histNoStore          # don't put history cmds in history
+unsetopt histReduceBlanks   # a zsh 5.0.2 bug removes too much with this option set
+setopt incAppendHistoryTime # append to history file right after command completes, not at exit
+unsetopt markDirs           # put / after directory names in filename generation
+setopt menuComplete         # cycle through choices on TAB
+unsetopt listBeep           # beep on ambiguous completion
+setopt noFlowControl        # disable flow control so C-s and C-q are usable keys
+setopt notify               # print status of background jobs immediately
+setopt numericGlobSort      # sort filenames numerically when matched by a pattern
+setopt promptSubst          # allow functions in the prompt
+setopt pushdIgnoreDups      # don't put the same dir twice on the stack
+setopt pushdMinus           # reverse meaning of +/- in pushd builtin
+setopt pushdSilent          # don't print directory stack after pushd
+unsetopt pushdToHome        # Have pushd with no arguments act like pushd ${HOME}
+unsetopt shareHistory       # don't import history file at every prompt (set by some oh-my-zsh plugins)
+setopt ZLE                  # use zsh line editor
+
 if ((SHLVL == 1 && EUID != 0 && ${#SSH_CONNECTION} == 0)); then
   # Only restrict top-level login shell for non-root users, not in SSH
-  setopt ignoreEOF                   # do not exit on EOF (i.e. Ctrl-D); require typing "exit" or "logout"
+  setopt ignoreEOF # do not exit on EOF (i.e. Ctrl-D); require typing "exit" or "logout"
 fi
-unsetopt markDirs      # put / after directory names in filename generation
-setopt menuComplete    # cycle through choices on TAB
-unsetopt listBeep      # beep on ambiguous completion
-setopt noFlowControl   # disable flow control so C-s and C-q are usable keys
-setopt notify          # print status of background jobs immediately
-setopt numericGlobSort # sort filenames numerically when matched by a pattern
-setopt promptSubst     # allow functions in the prompt
-setopt pushdIgnoreDups # don't put the same dir twice on the stack
-setopt pushdMinus      # reverse meaning of +/- in pushd builtin
-setopt pushdSilent     # don't print directory stack after pushd
-unsetopt pushdToHome   # Have pushd with no arguments act like pushd ${HOME}
-unsetopt shareHistory  # don't import history file at every prompt (set by some oh-my-zsh plugins)
-setopt ZLE             # use zsh line editor
 
 ################################################################
 # Functions to make things easier and more pleasing
@@ -341,23 +340,23 @@ function lfcr() {
 }
 
 function lg() {
-    if [ -t 0 ]; then
-        # Interactive terminal (file argument provided)
-        pygmentize -g "$1" | less -XRF
-    else
-        # Piped input (stdin provided)
-        pygmentize -g | less -XRF
-    fi
+  if [ -t 0 ]; then
+    # Interactive terminal (file argument provided)
+    pygmentize -g "$1" | less -XRF
+  else
+    # Piped input (stdin provided)
+    pygmentize -g | less -XRF
+  fi
 }
 
 function lj() {
-    if [ -t 0 ]; then
-        # Interactive terminal (file argument provided)
-        pygmentize -l json "$1" | less -XRF
-    else
-        # Piped input (stdin provided)
-        pygmentize -l json | less -XRF
-    fi
+  if [ -t 0 ]; then
+    # Interactive terminal (file argument provided)
+    pygmentize -l json "$1" | less -XRF
+  else
+    # Piped input (stdin provided)
+    pygmentize -l json | less -XRF
+  fi
 }
 
 # make directory and change to it
@@ -380,15 +379,86 @@ function og() { # reverse spelling of "go"
   fi
 }
 
+# Populate/refresh local SQLite database from DynamoDB
+populate_db() {
+  setopt localoptions nullglob
+
+  local arg env file model model_dir model_input resolved_file
+  local -a envs models files_to_process
+  local parsing_models=0
+
+  model_dir="${HOME}/IdeaProjects/stratus-aws/scripts/model"
+
+  for arg in "$@"; do
+    if [[ "$arg" == -- ]]; then
+      parsing_models=1
+      continue
+    fi
+    if (( parsing_models )); then
+      models+=("$arg")
+    else
+      envs+=("$arg")
+    fi
+  done
+
+  [[ ${#envs[@]} -eq 0 ]] && envs=(devds)
+
+  if (( ${#models[@]} == 0 )); then
+    files_to_process=("${model_dir}"/[A-Z]*.py)
+  else
+    for model_input in "${models[@]}"; do
+      resolved_file=""
+
+      if [[ "$model_input" == */* ]]; then
+        [[ -f "$model_input" ]] && resolved_file="$model_input"
+      elif [[ -f "${model_dir}/${model_input}" ]]; then
+        resolved_file="${model_dir}/${model_input}"
+      else
+        resolved_file="${model_dir}/${model_input%.py}.py"
+        [[ -f "$resolved_file" ]] || resolved_file=""
+      fi
+
+      if [[ -n "$resolved_file" ]]; then
+        files_to_process+=("$resolved_file")
+      else
+        echo "Skipping unknown model input: $model_input" >&2
+      fi
+    done
+  fi
+
+  if (( ${#files_to_process[@]} == 0 )); then
+    echo "No model files selected" >&2
+    return 1
+  fi
+
+  ( # Use sub-shell so sso doesn't modify caller's environment
+    for env in "${envs[@]}"; do
+      sso "${env}-usercontrols" || continue
+
+      for file in "${files_to_process[@]}"; do
+        model="${file##*/}"
+        model="${model%.py}"
+        if read -rq "ans?Run populate for env=${env} model=${model}? [y/N] "; then
+          echo
+          populate_sqlite_db.py --env="$env" "$model" --drop --force --track-primary-keys
+        else
+          echo
+          echo "Skipping $model"
+        fi
+      done
+    done
+  )
+}
+
 # Override rg with Delta formatting for interactive use
 rg() {
-    if [ -t 1 ]; then
-        # Output is a terminal, use JSON and Delta
-        command rg --json "$@" | delta
-    else
-        # Output is a pipe/file, run standard ripgrep
-        command rg "$@"
-    fi
+  if [ -t 1 ]; then
+    # Output is a terminal, use JSON and Delta
+    command rg --json "$@" | delta
+  else
+    # Output is a pipe/file, run standard ripgrep
+    command rg "$@"
+  fi
 }
 
 function sleep_until() {
