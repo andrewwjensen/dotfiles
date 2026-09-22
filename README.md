@@ -59,6 +59,9 @@ Manual steps required after initializing a system with chezmoi.
    # Smooth Mac Backups Exclusion List
    .cache
    .DS_Store
+   .fseventsd
+   .Spotlight-V100
+   .TemporaryItems
    .Trash
    Downloads
    Library/Application Support/CloudDocs
