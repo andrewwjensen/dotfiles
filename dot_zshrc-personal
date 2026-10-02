@@ -541,5 +541,10 @@ setpaths
 eval "$(zoxide init zsh)"
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+# Override fzf ctrl-r to restore native incremental search backward
+bindkey '^R' history-incremental-search-backward
+# Assign the fzf version to a new shortcut
+bindkey '^Q' fzf-history-widget
+
 # Initialize the PowerLevel10k theme for OMZ
 source "$(brew --prefix)"/share/powerlevel10k/powerlevel10k.zsh-theme
