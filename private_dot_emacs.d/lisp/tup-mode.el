@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;;; tup-mode.el --- Major mode for editing files for Tup
 ;;
 ;; Copyright 2012, 2013 Eric James Michael Ritz

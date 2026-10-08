@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                        Package includes
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -80,7 +81,7 @@
 ;; Pair eglot with corfu for fast, modern completion overlays
 (use-package corfu
   :ensure t
-  :init
+  :config
   (global-corfu-mode))
 
 ;; Allow editing of binary .plist files.

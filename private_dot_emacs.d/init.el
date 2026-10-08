@@ -1,31 +1,37 @@
+;; -*- lexical-binding: t; -*-
+
+;; Fix native compilation version mismatch on macOS 27
+(when (eq system-type 'darwin)
+  (setenv "MACOSX_DEPLOYMENT_TARGET" "27.0"))
+
 (require 'package)
-(add-to-list 'package-archives
-         '("melpa" . "http://melpa.org/packages/") t)
+
+;; Secure the package archives with HTTPS
+;;(setq package-archives '(("gnu"   . "https://gnu.org")
+;;                         ("melpa" . "https://melpa.org")))
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("melpa" . "http://melpa.org/packages/")))
 
 (package-initialize)
 
+;; Automatically refresh stale or missing contents
 (when (not package-archive-contents)
-    (package-refresh-contents))
+  (package-refresh-contents))
 
+;; Install and setup use-package
 (unless (package-installed-p 'use-package)
+  (package-refresh-contents) ; Refresh explicitly if bootstrap fails
   (package-install 'use-package))
 
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-(use-package undo-tree)
-(global-undo-tree-mode)
+;; Defer global mode configuration until after installation
+(use-package undo-tree
+  :config
+  (global-undo-tree-mode))
 
 (add-to-list 'load-path "~/.emacs.d/custom")
-
-;; (use-package desktop+)
-;; (use-package session)
-
-;; (menu-bar-mode -1)
-;; (tool-bar-mode -1)
-
-;; (setq gc-cons-threshold 100000000)
-;; (setq inhibit-startup-message t)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 

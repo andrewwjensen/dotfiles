@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;;
 ;; For syntax coloring and indenting of the Next Byte Codes (nbc) language for
 ;; controlling Lego Mindstorms NXT bricks.
